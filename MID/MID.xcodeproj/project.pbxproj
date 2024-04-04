@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2558EC532BBEDACE00F01FFA /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558EC522BBEDACE00F01FFA /* UIColor+.swift */; };
 		255CF16D2BBBA95400107219 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255CF16C2BBBA95400107219 /* AppDelegate.swift */; };
 		255CF16F2BBBA95400107219 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255CF16E2BBBA95400107219 /* SceneDelegate.swift */; };
 		255CF1712BBBA95400107219 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255CF1702BBBA95400107219 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2558EC522BBEDACE00F01FFA /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		255CF1692BBBA95400107219 /* MID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		255CF16C2BBBA95400107219 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		255CF16E2BBBA95400107219 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				255CF1C72BBBBEDF00107219 /* NSObject+.swift */,
 				255CF1C92BBBBEEC00107219 /* UIImage+.swift */,
 				255CF1D62BBBC4B000107219 /* UITabBar+.swift */,
+				2558EC522BBEDACE00F01FFA /* UIColor+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				255CF1C42BBBBEBD00107219 /* StringLiterals.swift in Sources */,
 				255CF1D42BBBC3FC00107219 /* TabBarItem.swift in Sources */,
 				255CF1C62BBBBED400107219 /* String+.swift in Sources */,
+				2558EC532BBEDACE00F01FFA /* UIColor+.swift in Sources */,
 				255CF1CA2BBBBEEC00107219 /* UIImage+.swift in Sources */,
 				255CF16D2BBBA95400107219 /* AppDelegate.swift in Sources */,
 				255CF1CE2BBBC3C200107219 /* BaseView.swift in Sources */,
