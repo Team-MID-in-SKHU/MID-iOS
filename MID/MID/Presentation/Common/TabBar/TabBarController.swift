@@ -60,10 +60,10 @@ private extension TabBarController {
     
     func setTabBarUI() {
         UITabBar.clearShadow()
-        tabBar.backgroundColor = .white
-        tabBar.tintColor = .red
+        tabBar.backgroundColor = UIColor.gray500
+        tabBar.tintColor = .white
         tabBar.layer.masksToBounds = false
-        tabBar.layer.shadowColor = UIColor.red.cgColor
+        tabBar.layer.shadowColor = UIColor.gray500.cgColor
         tabBar.layer.shadowOpacity = 1
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowRadius = 1
