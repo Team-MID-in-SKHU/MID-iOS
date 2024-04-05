@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 
 protocol OnboardingViewModelInput {
+    
 }
 
 protocol OnboardingViewModelOutput {
@@ -18,8 +19,8 @@ protocol OnboardingViewModelOutput {
 }
 
 protocol OnboardingViewModelType {
-    var Onboardinginputs: OnboardingViewModelInput { get }
-    var Onboardingoutputs: OnboardingViewModelOutput { get }
+    var inputs: OnboardingViewModelInput { get }
+    var outputs: OnboardingViewModelOutput { get }
 }
 
 final class OnboardingViewModel: OnboardingViewModelInput, OnboardingViewModelOutput, OnboardingViewModelType {
@@ -27,5 +28,5 @@ final class OnboardingViewModel: OnboardingViewModelInput, OnboardingViewModelOu
     var inputs: OnboardingViewModelInput { return self }
     var outputs: OnboardingViewModelOutput { return self }
     
-    init() {}
+    init() { }
 }
