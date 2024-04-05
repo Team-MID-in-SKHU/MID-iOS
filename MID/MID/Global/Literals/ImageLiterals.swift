@@ -11,4 +11,8 @@ enum ImageLiterals {
     enum TabBar {
         static var home: UIImage { .load(name: "home").withRenderingMode(.alwaysOriginal) }
     }
+    
+    enum MyPage {
+        static var userImage: UIImage { .load(name: "UserImage").withRenderingMode(.alwaysOriginal)}
+    }
 }
