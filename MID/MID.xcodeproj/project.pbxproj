@@ -46,6 +46,7 @@
 		255CF1D72BBBC4B000107219 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255CF1D62BBBC4B000107219 /* UITabBar+.swift */; };
 		255CF1D92BBBC4C200107219 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255CF1D82BBBC4C200107219 /* Network.swift */; };
 		255CF1DB2BBBC4CA00107219 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255CF1DA2BBBC4CA00107219 /* Data.swift */; };
+		258F41322BC2835E00B5B942 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F41312BC2835E00B5B942 /* UIView+.swift */; };
 		259ABFB82BBFA2D700EBF9D6 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFB72BBFA2D700EBF9D6 /* MyPageViewController.swift */; };
 		259ABFBA2BBFA2DE00EBF9D6 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFB92BBFA2DE00EBF9D6 /* MyPageViewModel.swift */; };
 		259ABFBC2BBFA2E600EBF9D6 /* MonthTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFBB2BBFA2E600EBF9D6 /* MonthTodoViewController.swift */; };
@@ -97,6 +98,7 @@
 		255CF1D62BBBC4B000107219 /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
 		255CF1D82BBBC4C200107219 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		255CF1DA2BBBC4CA00107219 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		258F41312BC2835E00B5B942 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		259ABFB72BBFA2D700EBF9D6 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		259ABFB92BBFA2DE00EBF9D6 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		259ABFBB2BBFA2E600EBF9D6 /* MonthTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				255CF1C92BBBBEEC00107219 /* UIImage+.swift */,
 				255CF1D62BBBC4B000107219 /* UITabBar+.swift */,
 				2558EC522BBEDACE00F01FFA /* UIColor+.swift */,
+				258F41312BC2835E00B5B942 /* UIView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				255CF1C02BBBBEB200107219 /* ImageLiterals.swift in Sources */,
 				255CF1C22BBBBEB800107219 /* SizeLiterals.swift in Sources */,
 				259ABFBE2BBFA2EB00EBF9D6 /* MonthTodoViewModel.swift in Sources */,
+				258F41322BC2835E00B5B942 /* UIView+.swift in Sources */,
 				259ABFBC2BBFA2E600EBF9D6 /* MonthTodoViewController.swift in Sources */,
 				255CF1B62BBBBE6D00107219 /* Font.swift in Sources */,
 				259ABFD22BBFA5A000EBF9D6 /* TodoView.swift in Sources */,
