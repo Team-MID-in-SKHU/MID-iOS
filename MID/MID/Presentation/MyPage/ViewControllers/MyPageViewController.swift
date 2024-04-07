@@ -22,6 +22,7 @@ final class MyPageViewController: BaseViewController {
     
     private let myPageProfileView = UserInfoView()
     private let myPageListTableView = UITableView()
+    private let withdrawalButton = UIButton()
     
    
     override func viewDidLoad() {
@@ -56,10 +57,17 @@ final class MyPageViewController: BaseViewController {
             $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             $0.contentInset = .zero
         }
+        
+        withdrawalButton.do {
+            $0.setTitle("회원 탈퇴", for: .normal)
+            $0.setTitleColor(.gray300, for: .normal)
+            $0.titleLabel?.font = .fontGuide(.detail3_reg)
+            $0.setUnderline()
+        }
     }
     
     override func setLayout() {
-        view.addSubviews(myPageProfileView, myPageListTableView)
+        view.addSubviews(myPageProfileView, myPageListTableView, withdrawalButton)
         
         myPageProfileView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -70,7 +78,14 @@ final class MyPageViewController: BaseViewController {
         myPageListTableView.snp.makeConstraints {
             $0.top.equalTo(myPageProfileView.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 0.0369)
             $0.horizontalEdges.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 0.2956)
+        }
+        
+        withdrawalButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(18)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(12)
+            $0.height.equalTo(21)
+            $0.width.equalTo(44)
         }
     }
     
