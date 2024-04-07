@@ -18,22 +18,22 @@ extension TabBarItemType {
     var unSelectedIcon: UIImage {
         switch self {
         case .home:
-            return ImageLiterals.TabBar.home
+            return ImageLiterals.TabBar.todo_off
         case .actionList:
-            return ImageLiterals.TabBar.home
+            return ImageLiterals.TabBar.mid_off
         case .myPage:
-            return ImageLiterals.TabBar.home
+            return ImageLiterals.TabBar.mypage_off
         }
     }
     
     var selectedIcon: UIImage {
         switch self {
         case .home:
-            return ImageLiterals.TabBar.home
+            return ImageLiterals.TabBar.todo_on
         case .actionList:
-            return ImageLiterals.TabBar.home
+            return ImageLiterals.TabBar.mid_on
         case .myPage:
-            return ImageLiterals.TabBar.home
+            return ImageLiterals.TabBar.mypage_on
         }
     }
     
