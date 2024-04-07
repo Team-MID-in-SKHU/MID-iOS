@@ -33,7 +33,7 @@ extension ViewController {
     // MARK: - UI Components Property
     
     private func setUI() {
-        view.backgroundColor = .blue
+        view.backgroundColor = UIColor.gray600
     }
     
     // MARK: - Layout Helper
