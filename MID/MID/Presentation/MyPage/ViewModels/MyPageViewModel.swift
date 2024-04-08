@@ -11,6 +11,11 @@ import RxCocoa
 import RxSwift
 
 protocol MyPageViewModelInput {
+    func myInformationDidTap()
+    func interestModifyDidTap()
+    func pushAlarmDidTap()
+    func logOutDidTap()
+    func withdrawalDidTap()
 }
 
 protocol MyPageViewModelOutput {
@@ -35,5 +40,25 @@ final class MyPageViewModel: MyPageViewModelInput, MyPageViewModelOutput, MyPage
     
     init() {
         myPageMenuList.accept(myPageList)
+    }
+    
+    func myInformationDidTap() {
+        print("myInformationDidTap")
+    }
+    
+    func interestModifyDidTap() {
+        print("interestModifyDidTap")
+    }
+    
+    func pushAlarmDidTap() {
+        print("pushAlarmDidTap")
+    }
+    
+    func logOutDidTap() {
+        print("logOutDidTap")
+    }
+    
+    func withdrawalDidTap() {
+        print("withdrawalDidTap")
     }
 }
