@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 
 protocol TodoViewModelInput {
+    func lookUpButtonTap()
 }
 
 protocol TodoViewModelOutput {
@@ -28,4 +29,8 @@ final class TodoViewModel: TodoViewModelInput, TodoViewModelOutput, TodoViewMode
     var outputs: TodoViewModelOutput { return self }
     
     init() {}    
+    
+    func lookUpButtonTap() {
+        print("lookUpButtonTap")
+    }
 }
