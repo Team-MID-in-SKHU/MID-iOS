@@ -48,6 +48,7 @@ final class LookUpButtonView: BaseView {
         
         imageView.do {
             $0.image = ImageLiterals.Todo.vector
+            $0.contentMode = .scaleAspectFit
         }
     }
     
