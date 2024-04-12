@@ -12,9 +12,11 @@ import SnapKit
 
 final class TodoListTableViewCell: UITableViewCell {
     
+    
+    private let todoTableFrame = UIView()
     private let todoTitleLabel = UILabel()
     private let todoCheckButton = UIButton()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setStyles()
@@ -30,9 +32,13 @@ final class TodoListTableViewCell: UITableViewCell {
 extension TodoListTableViewCell {
     
     private func setStyles() {
-        backgroundColor = .gray400
+        backgroundColor = .clear
         selectionStyle = .none
-        layer.cornerRadius = 10
+        
+        todoTableFrame.do {
+            $0.layer.cornerRadius = 10
+            $0.backgroundColor = .gray400
+        }
         
         todoTitleLabel.do {
             $0.font = .fontGuide(.detail2_reg)
@@ -44,25 +50,32 @@ extension TodoListTableViewCell {
         }
     }
     
-//    func setAddTarget() {
-//        todoCheckButton.addTarget(self, action: #selector(), for: .touchUpInside)
-//    }
+    func setAddTarget() {
+        todoCheckButton.addTarget(self, action: #selector(setCheckButton), for: .touchUpInside)
+    }
     
     
     private func setLayout() {
-        addSubviews(todoTitleLabel, todoCheckButton)
+        addSubviews(todoTableFrame)
+        todoTableFrame.addSubviews(todoTitleLabel, todoCheckButton)
         
         todoTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 11 / 812)
-            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 12 / 375)
             $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 12 / 375)
         }
         
         todoCheckButton.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 11 / 812)
+            $0.centerY.equalTo(todoTitleLabel.snp.centerY).offset(SizeLiterals.Screen.screenHeight * 4 / 812)
             $0.trailing.equalToSuperview().offset(-SizeLiterals.Screen.screenWidth * 12 / 375)
-            $0.centerY.equalToSuperview()
         }
+        
+        todoTableFrame.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 6 / 812)
+            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 7 / 375)
+            $0.bottom.equalToSuperview().offset(-SizeLiterals.Screen.screenHeight * 6 / 812)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 319 / 375)
+        }
+        
     }
 }
 
@@ -72,6 +85,7 @@ extension TodoListTableViewCell {
         todoTitleLabel.text = componentTitle
     }
     
+    @objc
     func setCheckButton(complete: Bool) {
         complete ? todoCheckButton.setImage(ImageLiterals.Todo.checkBox_on, for: .normal) : todoCheckButton.setImage(ImageLiterals.Todo.checkBox_off, for: .normal)
     }
