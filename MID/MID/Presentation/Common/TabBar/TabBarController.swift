@@ -38,13 +38,13 @@ private extension TabBarController {
     
     func setTabBarItems() {
         
-        let homeVC = UINavigationController(rootViewController: TodoViewController())
-        let actionListVC = UINavigationController(rootViewController: MonthTodoViewController())
+        let todoVC = UINavigationController(rootViewController: TodoViewController())
+        let midVC = UINavigationController(rootViewController: MonthTodoViewController())
         let myPageVC = UINavigationController(rootViewController: MyPageViewController())
         
         tabs = [
-            homeVC,
-            actionListVC,
+            todoVC,
+            midVC,
             myPageVC
         ]
         
