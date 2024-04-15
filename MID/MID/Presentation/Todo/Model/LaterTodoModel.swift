@@ -13,7 +13,7 @@ struct TodoItem {
 }
 
 struct DayTodo {
-    let date: Date
+    let date: String
     let day: String
     var todos: [TodoItem]
 }
@@ -21,14 +21,13 @@ struct DayTodo {
 struct dummyLaterTodoData {
     let todoItems1: [TodoItem]
     let todoItems2: [TodoItem]
-    let date1: Date
-    let date2: Date
+    let date1: String
+    let date2: String
     let dayTodo1: DayTodo
     let dayTodo2: DayTodo
 
     init() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
+
 
         todoItems1 = [
             TodoItem(title: "Swift 공부하기", todoCheck: true),
@@ -42,8 +41,8 @@ struct dummyLaterTodoData {
             TodoItem(title: "프로젝트 회의 준비", todoCheck: false)
         ]
 
-        date1 = dateFormatter.date(from: "2024/04/16")!
-        date2 = dateFormatter.date(from: "2024/04/17")!
+        date1 = "10"
+        date2 = "12"
 
         dayTodo1 = DayTodo(date: date1, day: "화요일", todos: todoItems1)
         dayTodo2 = DayTodo(date: date2, day: "수요일", todos: todoItems2)

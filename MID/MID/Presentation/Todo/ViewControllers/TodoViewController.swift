@@ -22,6 +22,7 @@ final class TodoViewController: BaseViewController {
     
     private let titleView = LookUpButtonView()
     private let todoView = TodoView()
+    private let laterTodoView = LaterTodoView()
     
     private let dummy = dummyLaterTodoData()
     

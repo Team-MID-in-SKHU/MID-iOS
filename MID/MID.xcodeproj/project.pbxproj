@@ -71,7 +71,7 @@
 		259ABFF12BBFA68400EBF9D6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFF02BBFA68400EBF9D6 /* OnboardingView.swift */; };
 		259ABFF32BBFA68E00EBF9D6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFF22BBFA68E00EBF9D6 /* OnboardingViewController.swift */; };
 		25C13D8E2BCD5CCE00EEF0E8 /* LaterTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C13D8D2BCD5CCE00EEF0E8 /* LaterTodoView.swift */; };
-		25C13D902BCD5D1C00EEF0E8 /* LaterTodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableViewCell.swift */; };
+		25C13D902BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift */; };
 		25C13D932BCD625E00EEF0E8 /* LaterTodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C13D922BCD625E00EEF0E8 /* LaterTodoModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -128,7 +128,7 @@
 		259ABFF02BBFA68400EBF9D6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		259ABFF22BBFA68E00EBF9D6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		25C13D8D2BCD5CCE00EEF0E8 /* LaterTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTodoView.swift; sourceTree = "<group>"; };
-		25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTodoListTableViewCell.swift; sourceTree = "<group>"; };
+		25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTodoListTableHeaderView.swift; sourceTree = "<group>"; };
 		25C13D922BCD625E00EEF0E8 /* LaterTodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTodoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -462,7 +462,7 @@
 			children = (
 				258F41372BC37C9E00B5B942 /* LookUpButtonView.swift */,
 				259ABFD32BBFA5AF00EBF9D6 /* TodoListTableViewCell.swift */,
-				25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableViewCell.swift */,
+				25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -704,7 +704,7 @@
 				259ABFB82BBFA2D700EBF9D6 /* MyPageViewController.swift in Sources */,
 				255CF1D42BBBC3FC00107219 /* TabBarItem.swift in Sources */,
 				259ABFF12BBFA68400EBF9D6 /* OnboardingView.swift in Sources */,
-				25C13D902BCD5D1C00EEF0E8 /* LaterTodoListTableViewCell.swift in Sources */,
+				25C13D902BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift in Sources */,
 				259ABFF32BBFA68E00EBF9D6 /* OnboardingViewController.swift in Sources */,
 				255CF1C62BBBBED400107219 /* String+.swift in Sources */,
 				259ABFDC2BBFA62700EBF9D6 /* NoticeViewController.swift in Sources */,
