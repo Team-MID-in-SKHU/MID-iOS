@@ -23,11 +23,15 @@ final class TodoViewController: BaseViewController {
     private let titleView = LookUpButtonView()
     private let todoView = TodoView()
     
+    private let dummy = dummyLaterTodoData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.outputs.todayTodoList.subscribe(onNext: { menuList in
             print(menuList)
         }).disposed(by: disposeBag)
+        
+        print(dummy.dayTodo1)
     }
     
     // MARK: - Properties
