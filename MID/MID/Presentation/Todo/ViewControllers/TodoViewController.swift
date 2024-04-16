@@ -24,7 +24,7 @@ final class TodoViewController: BaseViewController {
     private let todoView = TodoView()
     private let laterTodoView = LaterTodoView()
     
-    private let dummy = dummyLaterTodoData()
+    private var dayTodos: [DayTodo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,12 @@ final class TodoViewController: BaseViewController {
             print(menuList)
         }).disposed(by: disposeBag)
         
-        print(dummy.dayTodo1)
+        print("나눠 주고 ~")
+        
+        viewModel.outputs.laterTodoList.subscribe(onNext: { menuList in
+            self.dayTodos = menuList
+        }).disposed(by: disposeBag)
+        
     }
     
     // MARK: - Properties
@@ -49,6 +54,12 @@ final class TodoViewController: BaseViewController {
         viewModel.outputs.todayTodoList
             .bind(to: todoView.todoTableView.rx.items(cellIdentifier: TodoListTableViewCell.className, cellType: TodoListTableViewCell.self)) { row, data, cell in
                 cell.configureWith(componentTitle: data)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.laterTodoList
+            .bind(to: laterTodoView.laterTodoTableView.rx.items(cellIdentifier: TodoListTableViewCell.className, cellType: TodoListTableViewCell.self)) { row, data, cell in
+//                cell.configureLater(data: [data])
             }
             .disposed(by: disposeBag)
     }
@@ -79,4 +90,5 @@ final class TodoViewController: BaseViewController {
         todoView.todoTableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.className)
     }
 }
+
 

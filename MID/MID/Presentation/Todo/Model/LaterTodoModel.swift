@@ -23,12 +23,21 @@ struct dummyLaterTodoData {
     let todoItems2: [TodoItem]
     let date1: String
     let date2: String
-    let dayTodo1: DayTodo
-    let dayTodo2: DayTodo
+
+    var dayTodo1: DayTodo {
+        return DayTodo(date: date1, day: "화요일", todos: todoItems1)
+    }
+
+    var dayTodo2: DayTodo {
+        return DayTodo(date: date2, day: "수요일", todos: todoItems2)
+    }
+
+    // DayTodo 배열을 반환하는 연산 프로퍼티
+    var todos: [DayTodo] {
+        return [dayTodo1, dayTodo2]
+    }
 
     init() {
-
-
         todoItems1 = [
             TodoItem(title: "Swift 공부하기", todoCheck: true),
             TodoItem(title: "iOS 앱 개발 블로그 읽기", todoCheck: false),
@@ -43,11 +52,9 @@ struct dummyLaterTodoData {
 
         date1 = "10"
         date2 = "12"
-
-        dayTodo1 = DayTodo(date: date1, day: "화요일", todos: todoItems1)
-        dayTodo2 = DayTodo(date: date2, day: "수요일", todos: todoItems2)
     }
 }
+
 
 
 

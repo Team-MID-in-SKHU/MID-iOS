@@ -84,6 +84,10 @@ extension TodoListTableViewCell {
     func configureWith(componentTitle: String) {
         todoTitleLabel.text = componentTitle
     }
+//    
+//    func configureLater(data: [DayTodo]) {
+//        todoTitleLabel.text = data.todos.
+//    }
     
     @objc
     func setCheckButton(complete: Bool) {

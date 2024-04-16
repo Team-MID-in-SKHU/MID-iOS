@@ -12,8 +12,8 @@ import SnapKit
 
 final class LaterTodoListTableHeaderView: UITableViewHeaderFooterView {
     
-    private let dayLabel = UILabel()
     private let dateLabel = UILabel()
+    private let dayLabel = UILabel()
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -32,12 +32,12 @@ extension LaterTodoListTableHeaderView {
     private func setStyles() {
         backgroundColor = .clear
         
-        dayLabel.do {
+        dateLabel.do {
             $0.font = .fontGuide(.head4)
             $0.textColor = .white000
         }
         
-        dateLabel.do {
+        dayLabel.do {
             $0.font = .fontGuide(.detail2_reg)
             $0.textColor = .gray200
         }
@@ -46,23 +46,23 @@ extension LaterTodoListTableHeaderView {
     
     
     private func setLayout() {
-        addSubviews(dayLabel, dateLabel)
+        addSubviews(dateLabel, dayLabel)
         
-        dayLabel.snp.makeConstraints {
+        dateLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 12 / 812)
             $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 12 / 375)
         }
         
-        dateLabel.snp.makeConstraints {
-            $0.top.equalTo(dayLabel.snp.bottom)
+        dayLabel.snp.makeConstraints {
+            $0.top.equalTo(dateLabel.snp.bottom)
             $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 12 / 375)
         }
     }
 }
 
 extension LaterTodoListTableHeaderView {
-    func configureWith(day: String, date: String) {
-        dayLabel.text = "D-\(day)"
-        dateLabel.text = date
+    func configureWith(date: String, day: String) {
+        dateLabel.text = "D-\(date)"
+        dayLabel.text = day
     }
 }

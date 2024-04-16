@@ -36,7 +36,7 @@ final class TodoViewModel: TodoViewModelInput, TodoViewModelOutput, TodoViewMode
     
     var testLaterdata = dummyLaterTodoData()
     
-    private let testLaterTodoList: [DayTodo] = testLaterdata
+    lazy private var testLaterTodoList: [DayTodo] = testLaterdata.todos
     
     
     var inputs: TodoViewModelInput { return self }
