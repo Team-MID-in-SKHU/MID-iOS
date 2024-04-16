@@ -17,6 +17,12 @@ enum ImageLiterals {
         static var mypage_off: UIImage { .load(name: "mypage_ic_off").withRenderingMode(.alwaysOriginal) }
     }
     
+    enum Todo {
+        static var vector: UIImage { .load(name: "Vector_ic").withRenderingMode(.alwaysOriginal)}
+        static var checkBox_on: UIImage { .load(name: "CheckBox_on").withRenderingMode(.alwaysOriginal)}
+        static var checkBox_off: UIImage { .load(name: "CheckBox_off").withRenderingMode(.alwaysOriginal)}
+    }
+    
     enum MyPage {
         static var userImage: UIImage { .load(name: "UserImage").withRenderingMode(.alwaysOriginal)}
     }

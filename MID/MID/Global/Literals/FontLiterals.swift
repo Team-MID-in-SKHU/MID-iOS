@@ -56,7 +56,7 @@ extension FontLevel {
         case .head3:
             return 20
         case .head4:
-            return 18
+            return 17
         case .body1_bold, .body1_reg:
             return 16
         case .body2_bold, .body2_reg:

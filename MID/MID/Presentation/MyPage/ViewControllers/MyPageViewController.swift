@@ -36,6 +36,38 @@ final class MyPageViewController: BaseViewController {
     // MARK: - Properties
     
     override func bindViewModel() {
+        
+        myPageListTableView.rx.itemSelected
+            .bind { [weak self] indexPath in
+                guard let self else { return }
+                let row = indexPath.row
+                let input = self.viewModel.inputs
+                switch row {
+                case 0:
+                    // 내 정보 보기
+                    input.myInformationDidTap()
+                case 1:
+                    // 관심사 수정
+                    input.interestModifyDidTap()
+                case 2:
+                    // 푸쉬알림 설정
+                    input.pushAlarmDidTap()
+                case 3:
+                    // 로그아웃
+                    input.logOutDidTap()
+                default:
+                    break
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        withdrawalButton.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                self.viewModel.inputs.withdrawalDidTap()
+            }
+            .disposed(by: disposeBag)
+        
         viewModel.outputs.myPageMenuList
             .bind(to: myPageListTableView.rx.items(cellIdentifier: MyPageListTableViewCell.className, cellType: MyPageListTableViewCell.self)) { row, data, cell in
                 cell.configureWith(componentTitle: data)
@@ -56,6 +88,7 @@ final class MyPageViewController: BaseViewController {
             $0.separatorColor = .gray400
             $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             $0.contentInset = .zero
+            $0.isScrollEnabled = false
         }
         
         withdrawalButton.do {
