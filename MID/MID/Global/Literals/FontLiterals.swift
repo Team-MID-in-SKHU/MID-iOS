@@ -68,7 +68,7 @@ extension FontLevel {
         case .detail2_bold, .detail2_reg:
             return 12
         case .detail3_reg:
-            return 11
+            return 10
         }
     }
 }
