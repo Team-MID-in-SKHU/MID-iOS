@@ -18,6 +18,7 @@ final class CalendarView: BaseView {
     
     private let titleLabel = UILabel()
     let calendarView = UICalendarView()
+    ㅣㄷㅅ 
     
     // MARK: - UI Components Property
     
@@ -44,7 +45,7 @@ final class CalendarView: BaseView {
             $0.locale = .current
             $0.fontDesign = .rounded
             $0.backgroundColor = .gray600
-            $0.tintColor = .white000
+            $0.tintColor = .red500
         }
    
         
