@@ -13,6 +13,7 @@ import SnapKit
 final class MonthTodoListTableViewCell: UITableViewCell {
     
     private let todoTitleLabel = UILabel()
+    private let todoSubTitleLabel = UILabel()
     private let todoCheckButton = UIButton()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -37,6 +38,11 @@ extension MonthTodoListTableViewCell {
         todoTitleLabel.do {
             $0.font = .fontGuide(.detail2_reg)
             $0.textColor = .white000
+        }
+        
+        todoSubTitleLabel.do {
+            $0.font = .fontGuide(.detail3_reg)
+            $0.textColor = .gray200
         }
         
         todoCheckButton.do {
