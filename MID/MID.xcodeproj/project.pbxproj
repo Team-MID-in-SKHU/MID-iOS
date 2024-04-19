@@ -51,13 +51,11 @@
 		258F41382BC37C9E00B5B942 /* LookUpButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F41372BC37C9E00B5B942 /* LookUpButtonView.swift */; };
 		259ABFB82BBFA2D700EBF9D6 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFB72BBFA2D700EBF9D6 /* MyPageViewController.swift */; };
 		259ABFBA2BBFA2DE00EBF9D6 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFB92BBFA2DE00EBF9D6 /* MyPageViewModel.swift */; };
-		259ABFBC2BBFA2E600EBF9D6 /* MonthTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFBB2BBFA2E600EBF9D6 /* MonthTodoViewController.swift */; };
 		259ABFBE2BBFA2EB00EBF9D6 /* MonthTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFBD2BBFA2EB00EBF9D6 /* MonthTodoViewModel.swift */; };
 		259ABFC02BBFA2EF00EBF9D6 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFBF2BBFA2EF00EBF9D6 /* TodoViewController.swift */; };
 		259ABFC22BBFA2F700EBF9D6 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFC12BBFA2F700EBF9D6 /* TodoViewModel.swift */; };
 		259ABFCA2BBFA4E700EBF9D6 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFC92BBFA4E700EBF9D6 /* UserInfoView.swift */; };
 		259ABFCC2BBFA4FC00EBF9D6 /* MyPageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFCB2BBFA4FC00EBF9D6 /* MyPageListTableViewCell.swift */; };
-		259ABFCE2BBFA55400EBF9D6 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFCD2BBFA55400EBF9D6 /* CalendarView.swift */; };
 		259ABFD02BBFA56F00EBF9D6 /* MonthTodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFCF2BBFA56F00EBF9D6 /* MonthTodoListTableViewCell.swift */; };
 		259ABFD22BBFA5A000EBF9D6 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFD12BBFA5A000EBF9D6 /* TodoView.swift */; };
 		259ABFD42BBFA5AF00EBF9D6 /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFD32BBFA5AF00EBF9D6 /* TodoListTableViewCell.swift */; };
@@ -74,7 +72,7 @@
 		25C13D902BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift */; };
 		25C13D932BCD625E00EEF0E8 /* LaterTodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C13D922BCD625E00EEF0E8 /* LaterTodoModel.swift */; };
 		25D74A912BD1FA430052BACC /* MonthTodoCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D74A902BD1FA430052BACC /* MonthTodoCalendarCollectionViewCell.swift */; };
-		25D74A932BD1FAA50052BACC /* MonthTodoCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D74A922BD1FAA50052BACC /* MonthTodoCalendarViewController.swift */; };
+		25D74A932BD1FAA50052BACC /* MonthTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D74A922BD1FAA50052BACC /* MonthTodoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,13 +108,11 @@
 		258F41372BC37C9E00B5B942 /* LookUpButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpButtonView.swift; sourceTree = "<group>"; };
 		259ABFB72BBFA2D700EBF9D6 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		259ABFB92BBFA2DE00EBF9D6 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
-		259ABFBB2BBFA2E600EBF9D6 /* MonthTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoViewController.swift; sourceTree = "<group>"; };
 		259ABFBD2BBFA2EB00EBF9D6 /* MonthTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoViewModel.swift; sourceTree = "<group>"; };
 		259ABFBF2BBFA2EF00EBF9D6 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		259ABFC12BBFA2F700EBF9D6 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		259ABFC92BBFA4E700EBF9D6 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		259ABFCB2BBFA4FC00EBF9D6 /* MyPageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListTableViewCell.swift; sourceTree = "<group>"; };
-		259ABFCD2BBFA55400EBF9D6 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		259ABFCF2BBFA56F00EBF9D6 /* MonthTodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoListTableViewCell.swift; sourceTree = "<group>"; };
 		259ABFD12BBFA5A000EBF9D6 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 		259ABFD32BBFA5AF00EBF9D6 /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
@@ -133,7 +129,7 @@
 		25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTodoListTableHeaderView.swift; sourceTree = "<group>"; };
 		25C13D922BCD625E00EEF0E8 /* LaterTodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTodoModel.swift; sourceTree = "<group>"; };
 		25D74A902BD1FA430052BACC /* MonthTodoCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
-		25D74A922BD1FAA50052BACC /* MonthTodoCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoCalendarViewController.swift; sourceTree = "<group>"; };
+		25D74A922BD1FAA50052BACC /* MonthTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,8 +384,7 @@
 		259ABFB32BBFA29B00EBF9D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				259ABFBB2BBFA2E600EBF9D6 /* MonthTodoViewController.swift */,
-				25D74A922BD1FAA50052BACC /* MonthTodoCalendarViewController.swift */,
+				25D74A922BD1FAA50052BACC /* MonthTodoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -438,7 +433,6 @@
 		259ABFC52BBFA49700EBF9D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				259ABFCD2BBFA55400EBF9D6 /* CalendarView.swift */,
 				259ABFC62BBFA49C00EBF9D6 /* Components */,
 			);
 			path = Views;
@@ -685,11 +679,10 @@
 				258F41342BC2931300B5B942 /* UIButton+.swift in Sources */,
 				259ABFE62BBFA65200EBF9D6 /* LoginViewController.swift in Sources */,
 				255CF1C02BBBBEB200107219 /* ImageLiterals.swift in Sources */,
-				25D74A932BD1FAA50052BACC /* MonthTodoCalendarViewController.swift in Sources */,
+				25D74A932BD1FAA50052BACC /* MonthTodoViewController.swift in Sources */,
 				255CF1C22BBBBEB800107219 /* SizeLiterals.swift in Sources */,
 				259ABFBE2BBFA2EB00EBF9D6 /* MonthTodoViewModel.swift in Sources */,
 				258F41322BC2835E00B5B942 /* UIView+.swift in Sources */,
-				259ABFBC2BBFA2E600EBF9D6 /* MonthTodoViewController.swift in Sources */,
 				255CF1B62BBBBE6D00107219 /* Font.swift in Sources */,
 				259ABFD22BBFA5A000EBF9D6 /* TodoView.swift in Sources */,
 				255CF1CC2BBBBF1200107219 /* BaseViewController.swift in Sources */,
@@ -698,7 +691,6 @@
 				259ABFC02BBFA2EF00EBF9D6 /* TodoViewController.swift in Sources */,
 				259ABFD02BBFA56F00EBF9D6 /* MonthTodoListTableViewCell.swift in Sources */,
 				259ABFE12BBFA63500EBF9D6 /* NoticeViewModel.swift in Sources */,
-				259ABFCE2BBFA55400EBF9D6 /* CalendarView.swift in Sources */,
 				255CF1D22BBBC3E900107219 /* TabBarController.swift in Sources */,
 				258F41382BC37C9E00B5B942 /* LookUpButtonView.swift in Sources */,
 				255CF1712BBBA95400107219 /* ViewController.swift in Sources */,
