@@ -43,6 +43,10 @@ extension UIColor {
         return UIColor(hex: "#000000")
     }
 
+    static var red300: UIColor {
+        return UIColor(hex: "#FF4539")
+    }
+    
     static var red400: UIColor {
         return UIColor(hex: "#FF4F17")
     }
