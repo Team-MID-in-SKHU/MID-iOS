@@ -10,8 +10,13 @@ import UIKit
 
 import Then
 import SnapKit
+import RxSwift
+import RxCocoa
 
-final class MonthTodoViewController: UIViewController {
+final class MonthTodoViewController: BaseViewController {
+    
+    private let viewModel = TodoViewModel()
+    private let disposeBag = DisposeBag()
     
     private lazy var scrollView = UIScrollView()
     private lazy var contentView = UIView()
@@ -27,16 +32,37 @@ final class MonthTodoViewController: UIViewController {
     private let dateFormatter = DateFormatter()
     private var calendarDate = Date()
     private var days = [String]()
+    var todayDay: Int {
+        let todayComponents = self.calendar.dateComponents([.year, .month, .day], from: Date())
+        let selectedMonthComponents = self.calendar.dateComponents([.year, .month], from: self.calendarDate)
+        
+        guard let todayDate = self.calendar.date(from: todayComponents),
+              let selectedMonthFirstDate = self.calendar.date(from: selectedMonthComponents) else {
+            return 0
+        }
+        
+        let todayDay = self.calendar.dateComponents([.day], from: selectedMonthFirstDate, to: todayDate).day ?? 0
+        
+        return todayDay
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         self.configure()
-        setStyle()
-        setLayout()
     }
     
-    private func setStyle() {
+    override func bindViewModel() {
+//        collectionView.rx.itemSelected
+//            .bind { [weak self] indexPath in
+//                guard let self else { return }
+//                let row = indexPath.row
+//                print("Selected: \(row)")
+//            }
+//            .disposed(by: disposeBag)
+    }
+    
+    override func setStyles() {
         view.backgroundColor = .gray600
         scrollView.do {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -94,7 +120,7 @@ final class MonthTodoViewController: UIViewController {
         }
     }
     
-    private func setLayout() {
+    override func setLayout() {
         view.addSubviews(scrollView)
         scrollView.addSubviews(contentView)
         contentView.addSubviews(titleLabel, subTitleLabel, previousButton,
@@ -178,29 +204,6 @@ final class MonthTodoViewController: UIViewController {
     }
 }
 
-extension MonthTodoViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.days.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
-        cell.update(day: self.days[indexPath.item])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = self.weekStackView.frame.width / 7
-        return CGSize(width: width, height: width * 1.3)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return .zero
-    }
-    
-}
-
 extension MonthTodoViewController {
     
     private func configureCalendar() {
@@ -272,5 +275,38 @@ extension MonthTodoViewController {
 
     @objc private func didTodayButtonTouched(_ sender: UIButton) {
         self.today()
+    }
+}
+
+
+extension MonthTodoViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.days.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
+        cell.update(day: self.days[indexPath.item])
+        if indexPath.item == self.todayDay {
+            cell.todayDisplay()
+        } else {
+            cell.unTodayDisplay()
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = self.weekStackView.frame.width / 7
+        return CGSize(width: width, height: width * 1.3)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedDay = self.days[indexPath.item]
+        print("Selected day: \(selectedDay)")
     }
 }
