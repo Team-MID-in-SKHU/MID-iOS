@@ -53,13 +53,13 @@ final class MonthTodoViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-//        collectionView.rx.itemSelected
-//            .bind { [weak self] indexPath in
-//                guard let self else { return }
-//                let row = indexPath.row
-//                print("Selected: \(row)")
-//            }
-//            .disposed(by: disposeBag)
+        collectionView.rx.itemSelected
+            .bind { [weak self] indexPath in
+                guard let self else { return }
+                let row = indexPath.row
+                print("Selected: \(row)")
+            }
+            .disposed(by: disposeBag)
     }
     
     override func setStyles() {
