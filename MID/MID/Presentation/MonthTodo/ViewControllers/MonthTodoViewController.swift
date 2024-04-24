@@ -53,13 +53,13 @@ final class MonthTodoViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-        collectionView.rx.itemSelected
-            .bind { [weak self] indexPath in
-                guard let self else { return }
-                let row = indexPath.row
-                print("Selected: \(row)")
-            }
-            .disposed(by: disposeBag)
+//        collectionView.rx.itemSelected
+//            .bind { [weak self] indexPath in
+//                guard let self else { return }
+//                let row = indexPath.row
+//                print("Selected: \(row)")
+//            }
+//            .disposed(by: disposeBag)
     }
     
     override func setStyles() {
@@ -308,5 +308,6 @@ extension MonthTodoViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedDay = self.days[indexPath.item]
         print("Selected day: \(selectedDay)")
+        // 이 것을 활용하여 아래 View가 reload 되어야 함.
     }
 }
