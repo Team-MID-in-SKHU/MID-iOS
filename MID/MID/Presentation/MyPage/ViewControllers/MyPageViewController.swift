@@ -37,29 +37,29 @@ final class MyPageViewController: BaseViewController {
     
     override func bindViewModel() {
         
-        myPageListTableView.rx.itemSelected
-            .bind { [weak self] indexPath in
-                guard let self else { return }
-                let row = indexPath.row
-                let input = self.viewModel.inputs
-                switch row {
-                case 0:
-                    // 내 정보 보기
-                    input.myInformationDidTap()
-                case 1:
-                    // 관심사 수정
-                    input.interestModifyDidTap()
-                case 2:
-                    // 푸쉬알림 설정
-                    input.pushAlarmDidTap()
-                case 3:
-                    // 로그아웃
-                    input.logOutDidTap()
-                default:
-                    break
-                }
-            }
-            .disposed(by: disposeBag)
+//        myPageListTableView.rx.itemSelected
+//            .bind { [weak self] indexPath in
+//                guard let self else { return }
+//                let row = indexPath.row
+//                let input = self.viewModel.inputs
+//                switch row {
+//                case 0:
+//                    // 내 정보 보기
+//                    input.myInformationDidTap()
+//                case 1:
+//                    // 관심사 수정
+//                    input.interestModifyDidTap()
+//                case 2:
+//                    // 푸쉬알림 설정
+//                    input.pushAlarmDidTap()
+//                case 3:
+//                    // 로그아웃
+//                    input.logOutDidTap()
+//                default:
+//                    break
+//                }
+//            }
+//            .disposed(by: disposeBag)
         
         withdrawalButton.rx.tap
             .bind { [weak self] in
