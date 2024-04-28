@@ -27,6 +27,7 @@ final class MonthTodoViewController: BaseViewController {
     private lazy var todayButton = UIButton()
     private lazy var weekStackView = UIStackView()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let todoListView = TodoListView()
     
     private let calendar = Calendar.current
     private let dateFormatter = DateFormatter()
@@ -122,7 +123,7 @@ final class MonthTodoViewController: BaseViewController {
     
     override func setLayout() {
         view.addSubviews(scrollView)
-        scrollView.addSubviews(contentView)
+        scrollView.addSubviews(contentView, todoListView)
         contentView.addSubviews(titleLabel, subTitleLabel, previousButton,
                                 nextButton, todayButton, weekStackView, collectionView)
 
@@ -176,6 +177,11 @@ final class MonthTodoViewController: BaseViewController {
             $0.trailing.equalTo(weekStackView.snp.trailing)
             $0.bottom.equalTo(contentView.snp.bottom)
             $0.height.equalTo(contentView.snp.width).multipliedBy(1.5)
+        }
+        
+        todoListView.snp.makeConstraints {
+            $0.top.equalTo(contentView.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 70 / 812)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 72 / 812)
         }
     }
     
