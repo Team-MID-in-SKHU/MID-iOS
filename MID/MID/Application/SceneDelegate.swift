@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // MARK: - 3. 이 과정에서 생성된 UINavigationController는 앱 뷰 컨트롤러를 관리하는 데 사용되며 rootViewController는 앱의 뷰 계층 구조에서 최상위 view 컨드롤러 입니다.
         
-        let mainViewController = TabBarController()
-        mainViewController.selectedIndex = 0
+        let mainViewController = LoginViewController()
+//        mainViewController.selectedIndex = 0
         guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else { return }
         sceneDelegate.window?.rootViewController = UINavigationController(rootViewController: mainViewController)
         sceneDelegate.window?.makeKeyAndVisible()
