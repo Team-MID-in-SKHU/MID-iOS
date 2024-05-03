@@ -281,6 +281,7 @@ extension MonthTodoViewController {
 
     @objc private func didTodayButtonTouched(_ sender: UIButton) {
         self.today()
+        print(self.todayDay)
     }
 }
 
@@ -294,7 +295,7 @@ extension MonthTodoViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
         cell.update(day: self.days[indexPath.item])
-        if indexPath.item == self.todayDay {
+        if cell.dayLabel.text == "\(self.todayDay)" {
             cell.todayDisplay()
         } else {
             cell.unTodayDisplay()
