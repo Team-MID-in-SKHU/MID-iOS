@@ -27,6 +27,7 @@ final class MonthTodoViewController: BaseViewController {
     private lazy var todayButton = UIButton()
     private lazy var weekStackView = UIStackView()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let todoListLabel = UILabel()
     private let todoListView = TodoListView()
     
     private let calendar = Calendar.current
@@ -112,6 +113,7 @@ final class MonthTodoViewController: BaseViewController {
             $0.distribution = .fillEqually
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        
         collectionView.do {
             $0.dataSource = self
             $0.delegate = self
@@ -119,11 +121,17 @@ final class MonthTodoViewController: BaseViewController {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.backgroundColor = .clear
         }
+        
+        todoListLabel.do {
+            $0.text = "00월 00일 0요일 일정"
+            $0.textColor = .white000
+            $0.font = .fontGuide(.body1_bold)
+        }
     }
     
     override func setLayout() {
         view.addSubviews(scrollView)
-        scrollView.addSubviews(contentView, todoListView)
+        scrollView.addSubviews(contentView, todoListLabel, todoListView)
         contentView.addSubviews(titleLabel, subTitleLabel, previousButton,
                                 nextButton, todayButton, weekStackView, collectionView)
         
@@ -181,8 +189,13 @@ final class MonthTodoViewController: BaseViewController {
             $0.height.equalTo(contentView.snp.width).multipliedBy(1)
         }
         
+        todoListLabel.snp.makeConstraints {
+            $0.top.equalTo(contentView.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 30 / 812)
+            $0.leading.trailing.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 12 / 375)
+        }
+        
         todoListView.snp.makeConstraints {
-            $0.top.equalTo(contentView.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 70 / 812)
+            $0.top.equalTo(todoListLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 11 / 812)
             $0.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview() // Update this line
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 72 / 812) // Update this line
