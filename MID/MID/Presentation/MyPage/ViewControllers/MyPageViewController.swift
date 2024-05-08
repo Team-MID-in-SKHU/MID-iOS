@@ -55,6 +55,7 @@ final class MyPageViewController: BaseViewController {
                 case 3:
                     // 로그아웃
                     input.logOutDidTap()
+                    self.logoutSuccess()
                 default:
                     break
                 }
@@ -124,5 +125,17 @@ final class MyPageViewController: BaseViewController {
     
     override func setRegister() {
         myPageListTableView.register(MyPageListTableViewCell.self, forCellReuseIdentifier: MyPageListTableViewCell.className)
+    }
+    
+    private func logoutSuccess() {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = windowScene.delegate as? SceneDelegate,
+           let window = sceneDelegate.window {
+            let vc = LoginViewController()
+            let rootVC = UINavigationController(rootViewController: vc)
+            rootVC.navigationController?.isNavigationBarHidden = true
+            window.rootViewController = rootVC
+            window.makeKeyAndVisible()
+        }
     }
 }

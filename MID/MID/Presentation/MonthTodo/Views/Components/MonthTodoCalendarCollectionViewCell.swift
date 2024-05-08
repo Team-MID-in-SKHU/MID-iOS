@@ -15,7 +15,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CalendarCollectionViewCell"
     
-    private lazy var dayLabel = UILabel()
+    lazy var dayLabel = UILabel()
     private let toDay = UIView()
     
     required init?(coder: NSCoder) {

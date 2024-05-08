@@ -27,6 +27,7 @@ final class MonthTodoViewController: BaseViewController {
     private lazy var todayButton = UIButton()
     private lazy var weekStackView = UIStackView()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let todoListLabel = UILabel()
     private let todoListView = TodoListView()
     
     private let calendar = Calendar.current
@@ -54,13 +55,13 @@ final class MonthTodoViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-//        collectionView.rx.itemSelected
-//            .bind { [weak self] indexPath in
-//                guard let self else { return }
-//                let row = indexPath.row
-//                print("Selected: \(row)")
-//            }
-//            .disposed(by: disposeBag)
+        //        collectionView.rx.itemSelected
+        //            .bind { [weak self] indexPath in
+        //                guard let self else { return }
+        //                let row = indexPath.row
+        //                print("Selected: \(row)")
+        //            }
+        //            .disposed(by: disposeBag)
     }
     
     override func setStyles() {
@@ -97,7 +98,7 @@ final class MonthTodoViewController: BaseViewController {
             $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
             $0.addTarget(self, action: #selector(self.didNextButtonTouched), for: .touchUpInside)
         }
-
+        
         todayButton.do {
             $0.setTitle("Today", for: .normal)
             $0.setTitleColor(.white000, for: .normal)
@@ -112,6 +113,7 @@ final class MonthTodoViewController: BaseViewController {
             $0.distribution = .fillEqually
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        
         collectionView.do {
             $0.dataSource = self
             $0.delegate = self
@@ -119,22 +121,30 @@ final class MonthTodoViewController: BaseViewController {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.backgroundColor = .clear
         }
+        
+        todoListLabel.do {
+            $0.text = "00월 00일 0요일 일정"
+            $0.textColor = .white000
+            $0.font = .fontGuide(.body1_bold)
+        }
     }
     
     override func setLayout() {
         view.addSubviews(scrollView)
-        scrollView.addSubviews(contentView, todoListView)
+        scrollView.addSubviews(contentView, todoListLabel, todoListView)
         contentView.addSubviews(titleLabel, subTitleLabel, previousButton,
                                 nextButton, todayButton, weekStackView, collectionView)
-
+        
         scrollView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
         contentView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalToSuperview() // Update this line
+            $0.leading.trailing.equalToSuperview() // Update this line
             $0.width.equalTo(scrollView.snp.width)
+//            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 400 / 812)
         }
         
         titleLabel.snp.makeConstraints {
@@ -176,12 +186,19 @@ final class MonthTodoViewController: BaseViewController {
             $0.leading.equalTo(weekStackView.snp.leading)
             $0.trailing.equalTo(weekStackView.snp.trailing)
             $0.bottom.equalTo(contentView.snp.bottom)
-            $0.height.equalTo(contentView.snp.width).multipliedBy(1.5)
+            $0.height.equalTo(contentView.snp.width).multipliedBy(1)
+        }
+        
+        todoListLabel.snp.makeConstraints {
+            $0.top.equalTo(contentView.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 30 / 812)
+            $0.leading.trailing.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 12 / 375)
         }
         
         todoListView.snp.makeConstraints {
-            $0.top.equalTo(contentView.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 70 / 812)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 72 / 812)
+            $0.top.equalTo(todoListLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 11 / 812)
+            $0.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview() // Update this line
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 72 / 812) // Update this line
         }
     }
     
@@ -203,7 +220,7 @@ final class MonthTodoViewController: BaseViewController {
                 label.textColor = .gray200
             } else {
                 label.textColor = .white000
-
+                
             }
             self.weekStackView.addArrangedSubview(label)
         }
@@ -278,9 +295,10 @@ extension MonthTodoViewController {
     @objc private func didNextButtonTouched(_ sender: UIButton) {
         self.plusMonth()
     }
-
+    
     @objc private func didTodayButtonTouched(_ sender: UIButton) {
         self.today()
+        print(self.todayDay)
     }
 }
 
@@ -294,7 +312,7 @@ extension MonthTodoViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
         cell.update(day: self.days[indexPath.item])
-        if indexPath.item == self.todayDay {
+        if cell.dayLabel.text == "\(self.todayDay)" {
             cell.todayDisplay()
         } else {
             cell.unTodayDisplay()

@@ -32,11 +32,13 @@ final class TodoListView: BaseView {
         layer.borderColor = UIColor.gray200.cgColor
         
         titleLabel.do {
+            $0.text = "테스트 타이틀"
             $0.textColor = .white000
             $0.font = .fontGuide(.detail2_bold)
         }
         
         subTitleLabel.do {
+            $0.text = "테스트 서브 타이틀"
             $0.textColor = .gray200
             $0.font = .fontGuide(.detail3_reg)
         }
