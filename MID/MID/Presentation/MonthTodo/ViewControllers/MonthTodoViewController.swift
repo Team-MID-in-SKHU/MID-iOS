@@ -54,13 +54,13 @@ final class MonthTodoViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-//        collectionView.rx.itemSelected
-//            .bind { [weak self] indexPath in
-//                guard let self else { return }
-//                let row = indexPath.row
-//                print("Selected: \(row)")
-//            }
-//            .disposed(by: disposeBag)
+        //        collectionView.rx.itemSelected
+        //            .bind { [weak self] indexPath in
+        //                guard let self else { return }
+        //                let row = indexPath.row
+        //                print("Selected: \(row)")
+        //            }
+        //            .disposed(by: disposeBag)
     }
     
     override func setStyles() {
@@ -97,7 +97,7 @@ final class MonthTodoViewController: BaseViewController {
             $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
             $0.addTarget(self, action: #selector(self.didNextButtonTouched), for: .touchUpInside)
         }
-
+        
         todayButton.do {
             $0.setTitle("Today", for: .normal)
             $0.setTitleColor(.white000, for: .normal)
@@ -126,15 +126,17 @@ final class MonthTodoViewController: BaseViewController {
         scrollView.addSubviews(contentView, todoListView)
         contentView.addSubviews(titleLabel, subTitleLabel, previousButton,
                                 nextButton, todayButton, weekStackView, collectionView)
-
+        
         scrollView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
         contentView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalToSuperview() // Update this line
+            $0.leading.trailing.equalToSuperview() // Update this line
             $0.width.equalTo(scrollView.snp.width)
+//            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 400 / 812)
         }
         
         titleLabel.snp.makeConstraints {
@@ -176,12 +178,14 @@ final class MonthTodoViewController: BaseViewController {
             $0.leading.equalTo(weekStackView.snp.leading)
             $0.trailing.equalTo(weekStackView.snp.trailing)
             $0.bottom.equalTo(contentView.snp.bottom)
-            $0.height.equalTo(contentView.snp.width).multipliedBy(1.5)
+            $0.height.equalTo(contentView.snp.width).multipliedBy(1)
         }
         
         todoListView.snp.makeConstraints {
             $0.top.equalTo(contentView.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 70 / 812)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 72 / 812)
+            $0.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview() // Update this line
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 72 / 812) // Update this line
         }
     }
     
@@ -203,7 +207,7 @@ final class MonthTodoViewController: BaseViewController {
                 label.textColor = .gray200
             } else {
                 label.textColor = .white000
-
+                
             }
             self.weekStackView.addArrangedSubview(label)
         }
@@ -278,7 +282,7 @@ extension MonthTodoViewController {
     @objc private func didNextButtonTouched(_ sender: UIButton) {
         self.plusMonth()
     }
-
+    
     @objc private func didTodayButtonTouched(_ sender: UIButton) {
         self.today()
         print(self.todayDay)
