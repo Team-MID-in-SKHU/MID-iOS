@@ -50,6 +50,9 @@
 		258F41322BC2835E00B5B942 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F41312BC2835E00B5B942 /* UIView+.swift */; };
 		258F41342BC2931300B5B942 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F41332BC2931300B5B942 /* UIButton+.swift */; };
 		258F41382BC37C9E00B5B942 /* LookUpButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F41372BC37C9E00B5B942 /* LookUpButtonView.swift */; };
+		258F7AAD2BF2EB7100B0A2CF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F7AAC2BF2EB7100B0A2CF /* SignUpViewController.swift */; };
+		258F7AAF2BF2EE8900B0A2CF /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F7AAE2BF2EE8900B0A2CF /* SignUpView.swift */; };
+		258F7AB12BF2F70400B0A2CF /* UnderLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F7AB02BF2F70400B0A2CF /* UnderLineTextField.swift */; };
 		259ABFB82BBFA2D700EBF9D6 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFB72BBFA2D700EBF9D6 /* MyPageViewController.swift */; };
 		259ABFBA2BBFA2DE00EBF9D6 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFB92BBFA2DE00EBF9D6 /* MyPageViewModel.swift */; };
 		259ABFBE2BBFA2EB00EBF9D6 /* MonthTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259ABFBD2BBFA2EB00EBF9D6 /* MonthTodoViewModel.swift */; };
@@ -109,6 +112,9 @@
 		258F41312BC2835E00B5B942 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		258F41332BC2931300B5B942 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		258F41372BC37C9E00B5B942 /* LookUpButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpButtonView.swift; sourceTree = "<group>"; };
+		258F7AAC2BF2EB7100B0A2CF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		258F7AAE2BF2EE8900B0A2CF /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		258F7AB02BF2F70400B0A2CF /* UnderLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLineTextField.swift; sourceTree = "<group>"; };
 		259ABFB72BBFA2D700EBF9D6 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		259ABFB92BBFA2DE00EBF9D6 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		259ABFBD2BBFA2EB00EBF9D6 /* MonthTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoViewModel.swift; sourceTree = "<group>"; };
@@ -263,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				255CF1CF2BBBC3D800107219 /* UIComponet.swift */,
+				258F7AB02BF2F70400B0A2CF /* UnderLineTextField.swift */,
 			);
 			path = UIConponets;
 			sourceTree = "<group>";
@@ -531,6 +538,7 @@
 			isa = PBXGroup;
 			children = (
 				259ABFE52BBFA65200EBF9D6 /* LoginViewController.swift */,
+				258F7AAC2BF2EB7100B0A2CF /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -539,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				259ABFE72BBFA65700EBF9D6 /* LoginView.swift */,
+				258F7AAE2BF2EE8900B0A2CF /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -708,10 +717,12 @@
 				259ABFC22BBFA2F700EBF9D6 /* TodoViewModel.swift in Sources */,
 				259ABFEF2BBFA67B00EBF9D6 /* OnboardingViewModel.swift in Sources */,
 				259ABFB82BBFA2D700EBF9D6 /* MyPageViewController.swift in Sources */,
+				258F7AB12BF2F70400B0A2CF /* UnderLineTextField.swift in Sources */,
 				255CF1D42BBBC3FC00107219 /* TabBarItem.swift in Sources */,
 				259ABFF12BBFA68400EBF9D6 /* OnboardingView.swift in Sources */,
 				25C13D902BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift in Sources */,
 				259ABFF32BBFA68E00EBF9D6 /* OnboardingViewController.swift in Sources */,
+				258F7AAF2BF2EE8900B0A2CF /* SignUpView.swift in Sources */,
 				255CF1C62BBBBED400107219 /* String+.swift in Sources */,
 				259ABFDC2BBFA62700EBF9D6 /* NoticeViewController.swift in Sources */,
 				25C13D932BCD625E00EEF0E8 /* LaterTodoModel.swift in Sources */,
@@ -728,6 +739,7 @@
 				259ABFE82BBFA65700EBF9D6 /* LoginView.swift in Sources */,
 				255CF1BC2BBBBEA800107219 /* ColorLiterals.swift in Sources */,
 				259ABFBA2BBFA2DE00EBF9D6 /* MyPageViewModel.swift in Sources */,
+				258F7AAD2BF2EB7100B0A2CF /* SignUpViewController.swift in Sources */,
 				25D74A912BD1FA430052BACC /* MonthTodoCalendarCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

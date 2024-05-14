@@ -78,6 +78,8 @@ final class LoginView: BaseView {
             $0.font = .fontGuide(.detail1_reg)
             $0.textColor = .white000
             $0.setPlaceholderColor(.gray100)
+            $0.autocapitalizationType = .none
+            $0.isSecureTextEntry = true
         }
         
         signUpButton.do {
