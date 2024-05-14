@@ -25,7 +25,6 @@ final class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     // MARK: - Properties
@@ -38,10 +37,20 @@ final class LoginViewController: BaseViewController {
                 self.loginSuccess()
             }
             .disposed(by: disposeBag)
+        
+        loginView.signUpButton.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                self.pushToSignUpViewController()
+            }
+            .disposed(by: disposeBag)
     }
     
     override func setStyles() {
         view.backgroundColor = .gray600
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = .white000
     }
     
     override func setLayout() {
@@ -64,6 +73,12 @@ final class LoginViewController: BaseViewController {
             window.rootViewController = rootVC
             window.makeKeyAndVisible()
         }
+    }
+    
+    
+    private func pushToSignUpViewController() {
+        let vc = SignUpViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
