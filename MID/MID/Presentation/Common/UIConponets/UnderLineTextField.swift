@@ -12,7 +12,7 @@ import SnapKit
 
 class UnderLineTextField: UITextField {
     
-    lazy var placeholderColor: UIColor = self.tintColor
+    lazy var placeholderColor: UIColor = .white000
     lazy var placeholderString: String = ""
     
     private lazy var underLineView: UIView = {
@@ -68,7 +68,7 @@ extension UnderLineTextField {
     @objc
     func editingDidBegin() {
         setPlaceholder()
-        underLineView.backgroundColor = self.tintColor
+        underLineView.backgroundColor = .white000
     }
     
     @objc
