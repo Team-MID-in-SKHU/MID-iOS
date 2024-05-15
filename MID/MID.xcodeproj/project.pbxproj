@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		252A1D1B2BF48125006652B0 /* SignUpPageSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */; };
+		252A1D1D2BF487A4006652B0 /* SignUpThirdPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */; };
 		253FD4152BE1D55D000912CB /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FD4142BE1D55D000912CB /* UITextField+.swift */; };
 		2558EC532BBEDACE00F01FFA /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558EC522BBEDACE00F01FFA /* UIColor+.swift */; };
 		255CF16D2BBBA95400107219 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255CF16C2BBBA95400107219 /* AppDelegate.swift */; };
@@ -83,6 +85,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageSecondViewController.swift; sourceTree = "<group>"; };
+		252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdPageView.swift; sourceTree = "<group>"; };
 		253FD4142BE1D55D000912CB /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		2558EC522BBEDACE00F01FFA /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		255CF1692BBBA95400107219 /* MID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MID.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -544,6 +548,7 @@
 			children = (
 				259ABFE52BBFA65200EBF9D6 /* LoginViewController.swift */,
 				258F7AAC2BF2EB7100B0A2CF /* SignUpViewController.swift */,
+				252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -554,6 +559,7 @@
 				259ABFE72BBFA65700EBF9D6 /* LoginView.swift */,
 				258F7AAE2BF2EE8900B0A2CF /* SignUpFirstPageView.swift */,
 				258F7AB22BF3376400B0A2CF /* SignUpSecondPageView.swift */,
+				252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				255CF1D72BBBC4B000107219 /* UITabBar+.swift in Sources */,
+				252A1D1D2BF487A4006652B0 /* SignUpThirdPageView.swift in Sources */,
 				255CF1BE2BBBBEAD00107219 /* FontLiterals.swift in Sources */,
 				259ABFCC2BBFA4FC00EBF9D6 /* MyPageListTableViewCell.swift in Sources */,
 				255CF1C82BBBBEDF00107219 /* NSObject+.swift in Sources */,
@@ -711,6 +718,7 @@
 				255CF1DB2BBBC4CA00107219 /* Data.swift in Sources */,
 				259ABFDE2BBFA62D00EBF9D6 /* NoticeView.swift in Sources */,
 				259ABFC02BBFA2EF00EBF9D6 /* TodoViewController.swift in Sources */,
+				252A1D1B2BF48125006652B0 /* SignUpPageSecondViewController.swift in Sources */,
 				259ABFD02BBFA56F00EBF9D6 /* MonthTodoListTableViewCell.swift in Sources */,
 				259ABFE12BBFA63500EBF9D6 /* NoticeViewModel.swift in Sources */,
 				255CF1D22BBBC3E900107219 /* TabBarController.swift in Sources */,

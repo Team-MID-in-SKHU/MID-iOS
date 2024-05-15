@@ -23,7 +23,13 @@ final class SignUpFirstPageView: BaseView {
     let idTextField = UnderLineTextField()
     let nextButton = UIButton()
     private let percentBar = UIPercentBar(frame: .zero, percentValue: 8)
+  
     // MARK: - UI Components Property
+    
+    private var isIdValid: Bool {
+        guard let idText = idTextField.text else { return false }
+        return idText.count == 9 && idText.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    }
 
     
     // MARK: - Initializer
@@ -69,6 +75,8 @@ final class SignUpFirstPageView: BaseView {
             )
             $0.font = .fontGuide(.head1)
             $0.textColor = .white000
+            $0.addTarget(self, action: #selector(idTextFieldDidChange(_:)), for: .editingChanged)
+
         }
         
         nextButton.do {
@@ -76,6 +84,7 @@ final class SignUpFirstPageView: BaseView {
             $0.setTitleColor(.white000, for: .normal)
             $0.backgroundColor = .gray500
             $0.layer.cornerRadius = 8
+            $0.isEnabled = false
         }
     }
     
@@ -134,6 +143,19 @@ final class SignUpFirstPageView: BaseView {
 
 
     // MARK: - @objc Methods
+    
+    @objc 
+    private func idTextFieldDidChange(_ textField: UITextField) {
+        nextButton.isEnabled = isIdValid
+        
+        if isIdValid {
+            nextButton.backgroundColor = .white000
+            nextButton.setTitleColor(.gray500, for: .normal)
+        } else {
+            nextButton.backgroundColor = .gray500
+            nextButton.setTitleColor(.white000, for: .normal)
+        }
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
