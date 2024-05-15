@@ -26,6 +26,8 @@ final class SignUpPageSecondViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = .white000
     }
     
     // MARK: - Properties
@@ -38,7 +40,7 @@ final class SignUpPageSecondViewController: BaseViewController {
                 self.pushThirdPage()
             }
             .disposed(by: disposeBag)
-
+        
     }
     
     override func setStyles() {
@@ -55,13 +57,11 @@ final class SignUpPageSecondViewController: BaseViewController {
     }
     
     private func pushThirdPage() {
-        view.addSubviews(signUpSecondPage)
-        
-        signUpSecondPage.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
+        let vc = SignUpPageThirdViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
 }
 
 
