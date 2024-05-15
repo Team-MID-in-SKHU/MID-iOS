@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		252A1D1B2BF48125006652B0 /* SignUpPageSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */; };
 		252A1D1D2BF487A4006652B0 /* SignUpThirdPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */; };
+		252A1D1F2BF48C2C006652B0 /* SignUpPageThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */; };
 		253FD4152BE1D55D000912CB /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FD4142BE1D55D000912CB /* UITextField+.swift */; };
 		2558EC532BBEDACE00F01FFA /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558EC522BBEDACE00F01FFA /* UIColor+.swift */; };
 		255CF16D2BBBA95400107219 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255CF16C2BBBA95400107219 /* AppDelegate.swift */; };
@@ -87,6 +88,7 @@
 /* Begin PBXFileReference section */
 		252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageSecondViewController.swift; sourceTree = "<group>"; };
 		252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdPageView.swift; sourceTree = "<group>"; };
+		252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageThirdViewController.swift; sourceTree = "<group>"; };
 		253FD4142BE1D55D000912CB /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		2558EC522BBEDACE00F01FFA /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		255CF1692BBBA95400107219 /* MID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MID.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -549,6 +551,7 @@
 				259ABFE52BBFA65200EBF9D6 /* LoginViewController.swift */,
 				258F7AAC2BF2EB7100B0A2CF /* SignUpViewController.swift */,
 				252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */,
+				252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 				255CF1D42BBBC3FC00107219 /* TabBarItem.swift in Sources */,
 				259ABFF12BBFA68400EBF9D6 /* OnboardingView.swift in Sources */,
 				258F7AB32BF3376400B0A2CF /* SignUpSecondPageView.swift in Sources */,
+				252A1D1F2BF48C2C006652B0 /* SignUpPageThirdViewController.swift in Sources */,
 				25C13D902BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift in Sources */,
 				259ABFF32BBFA68E00EBF9D6 /* OnboardingViewController.swift in Sources */,
 				258F7AAF2BF2EE8900B0A2CF /* SignUpFirstPageView.swift in Sources */,
