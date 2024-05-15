@@ -20,7 +20,9 @@ final class SignUpSecondPageView: BaseView {
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
     let pwTextField = UnderLineTextField()
-    let pwCheckButton = UIButton()
+    private let checkLabel = UILabel()
+    let pwCheckTextField = UnderLineTextField()
+    let nextButton = UIButton()
     private let percentBar = UIPercentBar(frame: .zero, percentValue: 2)
     
     // MARK: - UI Components Property
@@ -61,9 +63,26 @@ final class SignUpSecondPageView: BaseView {
             )
             $0.font = .fontGuide(.head1)
             $0.textColor = .white000
+            $0.isSecureTextEntry = true
         }
         
-        pwCheckButton.do {
+        checkLabel.do {
+            $0.text = "확인을 위해 비밀번호를 다시 한번 입력해 주세요 :)"
+            $0.textColor = .white000
+            $0.font = .fontGuide(.detail2_bold)
+        }
+
+        pwCheckTextField.do {
+            $0.setPlaceholder(
+                placeeholder: "비밀번호를 다시 입력해주세요",
+                color: .gray100
+            )
+            $0.font = .fontGuide(.head1)
+            $0.textColor = .white000
+            $0.isSecureTextEntry = true
+        }
+        
+        nextButton.do {
             $0.setTitle("다음", for: .normal)
             $0.setTitleColor(.white000, for: .normal)
             $0.backgroundColor = .gray500
@@ -75,7 +94,8 @@ final class SignUpSecondPageView: BaseView {
     
     override func setLayout() {
         addSubviews(topLabel, titleLabel, subTitleLabel,
-                    pwTextField, percentBar, pwCheckButton)
+                    pwTextField, checkLabel, pwCheckTextField,
+                    percentBar, nextButton)
         
         
         topLabel.snp.makeConstraints {
@@ -99,14 +119,25 @@ final class SignUpSecondPageView: BaseView {
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 340 / 375)
         }
         
+        checkLabel.snp.makeConstraints {
+            $0.top.equalTo(pwTextField.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 30 / 812)
+            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 17 / 375)
+        }
+        
+        pwCheckTextField.snp.makeConstraints {
+            $0.top.equalTo(checkLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 15 / 812)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 340 / 375)
+        }
+        
         percentBar.snp.makeConstraints {
-            $0.bottom.equalTo(pwCheckButton.snp.top).offset(-SizeLiterals.Screen.screenHeight * 20 / 812)
+            $0.bottom.equalTo(nextButton.snp.top).offset(-SizeLiterals.Screen.screenHeight * 20 / 812)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(1)
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 353 / 375)
         }
         
-        pwCheckButton.snp.makeConstraints {
+        nextButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().offset(-SizeLiterals.Screen.screenHeight * 48 / 812)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 353 / 375)
