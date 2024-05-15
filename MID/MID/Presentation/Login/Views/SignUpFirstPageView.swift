@@ -103,7 +103,7 @@ final class SignUpFirstPageView: BaseView {
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(topLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 60 / 812)
+            $0.top.equalTo(topLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 30 / 812)
             $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 17 / 375)
         }
         
