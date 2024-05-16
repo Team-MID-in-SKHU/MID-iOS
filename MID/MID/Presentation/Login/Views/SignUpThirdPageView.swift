@@ -83,6 +83,7 @@ final class SignUpThirdPageView: BaseView {
             )
             $0.font = .fontGuide(.head1)
             $0.textColor = .white000
+            $0.keyboardType = .phonePad
             $0.addTarget(self, action: #selector(textFieldsDidChange(_:)), for: .editingChanged)
         }
         
