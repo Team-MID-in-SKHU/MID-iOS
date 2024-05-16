@@ -1,5 +1,5 @@
 //
-//  TodoListView.swift
+//  MonthTodoListViewCell.swift
 //  MID
 //
 //  Created by 천성우 on 4/28/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class TodoListView: BaseView {
+final class MonthTodoListViewCell: UITableViewCell {
     
     // MARK: - UI Components
     
@@ -21,13 +21,15 @@ final class TodoListView: BaseView {
     
     // MARK: - Initializer
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setStyles()
+        setLayout()
     }
     
     // MARK: - UI Components Property
     
-    override func setStyles() {
+    private func setStyles() {
         layer.borderWidth = 1
         layer.borderColor = UIColor.gray200.cgColor
         
@@ -47,13 +49,14 @@ final class TodoListView: BaseView {
             $0.layer.borderWidth = 1
             $0.layer.borderColor = UIColor.white000.cgColor
             $0.layer.cornerRadius = 2
+            $0.addTarget(self, action: #selector(testInput), for: .touchUpInside)
         }
 
     }
     
     // MARK: - Layout Helper
     
-    override func setLayout() {
+    private func setLayout() {
         addSubviews(titleLabel, subTitleLabel, checkButton)
         
         titleLabel.snp.makeConstraints {
@@ -76,7 +79,19 @@ final class TodoListView: BaseView {
     
     // MARK: - @objc Methods
     
+    @objc
+    private func testInput() {
+        print("눌림")
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+extension MonthTodoListViewCell {
+    func configureWith(title: String) {
+        titleLabel.text = title
+    }
+}
+
