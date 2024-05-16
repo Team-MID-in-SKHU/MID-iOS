@@ -56,7 +56,7 @@ extension TodoListTableViewCell {
     
     
     private func setLayout() {
-        addSubviews(todoTableFrame)
+        contentView.addSubviews(todoTableFrame)
         todoTableFrame.addSubviews(todoTitleLabel, todoCheckButton)
         
         todoTitleLabel.snp.makeConstraints {

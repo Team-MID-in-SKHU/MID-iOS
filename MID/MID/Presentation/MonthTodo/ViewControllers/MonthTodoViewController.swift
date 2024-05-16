@@ -70,15 +70,13 @@ final class MonthTodoViewController: BaseViewController {
         viewModel.outputs.midList
             .bind(to: todoListView.rx.items(cellIdentifier: MonthTodoListViewCell.className, cellType: MonthTodoListViewCell.self)) {[self] row, data, cell in
                 cell.configureWith(title: data)
-//                cell.selectionStyle = .none
-                cell.checkButton.addTarget(self, action: #selector(testInput), for: .touchUpInside)
-//                cell.selectionStyle = .none
-//                cell.checkButton.rx.tap
-//                    .bind { [weak self] in
-//                        guard let self else { return }
-//                        testInput()
-//                    }
-//                    .disposed(by: self.disposeBag)
+                cell.selectionStyle = .none
+                cell.checkButton.rx.tap
+                    .bind { [weak self] in
+                        guard let self else { return }
+                        testInput()
+                    }
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
