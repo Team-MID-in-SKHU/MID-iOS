@@ -16,7 +16,9 @@ final class MonthTodoListViewCell: UITableViewCell {
     
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
-    private let checkButton = UIButton()
+    private let topBorder = UIView()
+    private let bottomBorder = UIView()
+    let checkButton = UIButton()
     
     
     // MARK: - Initializer
@@ -30,8 +32,8 @@ final class MonthTodoListViewCell: UITableViewCell {
     // MARK: - UI Components Property
     
     private func setStyles() {
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.gray200.cgColor
+        backgroundColor = .gray500
+
         
         titleLabel.do {
             $0.text = "테스트 타이틀"
@@ -49,7 +51,15 @@ final class MonthTodoListViewCell: UITableViewCell {
             $0.layer.borderWidth = 1
             $0.layer.borderColor = UIColor.white000.cgColor
             $0.layer.cornerRadius = 2
-            $0.addTarget(self, action: #selector(testInput), for: .touchUpInside)
+            $0.isUserInteractionEnabled = true
+        }
+        
+        topBorder.do {
+            $0.backgroundColor = .gray200
+        }
+        
+        bottomBorder.do {
+            $0.backgroundColor = .gray200
         }
 
     }
@@ -57,7 +67,13 @@ final class MonthTodoListViewCell: UITableViewCell {
     // MARK: - Layout Helper
     
     private func setLayout() {
-        addSubviews(titleLabel, subTitleLabel, checkButton)
+        contentView.addSubviews(titleLabel, subTitleLabel, checkButton, topBorder, bottomBorder)
+        
+        topBorder.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 1 / 812)
+        }
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 21 / 812)
@@ -75,14 +91,17 @@ final class MonthTodoListViewCell: UITableViewCell {
             $0.width.height.equalTo(19)
         }
         
+        bottomBorder.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 1 / 812)
+        }
+        
     }
     
     // MARK: - @objc Methods
     
-    @objc
-    private func testInput() {
-        print("눌림")
-    }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
