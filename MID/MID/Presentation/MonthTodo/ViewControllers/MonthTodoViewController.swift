@@ -15,7 +15,7 @@ import RxCocoa
 
 final class MonthTodoViewController: BaseViewController {
     
-    private let viewModel = TodoViewModel()
+    private let viewModel = MonthTodoViewModel()
     private let disposeBag = DisposeBag()
     
     private lazy var scrollView = UIScrollView()
@@ -28,7 +28,7 @@ final class MonthTodoViewController: BaseViewController {
     private lazy var weekStackView = UIStackView()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let todoListLabel = UILabel()
-    private let todoListView = TodoListView()
+    private let todoListView = UITableView()
     
     private let calendar = Calendar.current
     private let dateFormatter = DateFormatter()
@@ -45,13 +45,17 @@ final class MonthTodoViewController: BaseViewController {
         
         let todayDay = self.calendar.dateComponents([.day], from: selectedMonthFirstDate, to: todayDate).day ?? 0
         
-        return todayDay
+        return todayDay + 1
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         self.configure()
+        
+        viewModel.outputs.midList.subscribe(onNext: { menuList in
+            print(menuList)
+        }).disposed(by: disposeBag)
     }
     
     override func bindViewModel() {
@@ -62,6 +66,23 @@ final class MonthTodoViewController: BaseViewController {
         //                print("Selected: \(row)")
         //            }
         //            .disposed(by: disposeBag)
+        
+        viewModel.outputs.midList
+            .bind(to: todoListView.rx.items(cellIdentifier: MonthTodoListViewCell.className, cellType: MonthTodoListViewCell.self)) {[self] row, data, cell in
+                cell.configureWith(title: data)
+//                cell.selectionStyle = .none
+                cell.checkButton.addTarget(self, action: #selector(testInput), for: .touchUpInside)
+//                cell.selectionStyle = .none
+//                cell.checkButton.rx.tap
+//                    .bind { [weak self] in
+//                        guard let self else { return }
+//                        testInput()
+//                    }
+//                    .disposed(by: self.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+
     }
     
     override func setStyles() {
@@ -69,6 +90,7 @@ final class MonthTodoViewController: BaseViewController {
         scrollView.do {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.backgroundColor = .clear
+            $0.showsVerticalScrollIndicator = false
         }
         
         contentView.do {
@@ -120,12 +142,23 @@ final class MonthTodoViewController: BaseViewController {
             $0.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.backgroundColor = .clear
+            $0.isScrollEnabled = false
         }
         
         todoListLabel.do {
             $0.text = "00월 00일 0요일 일정"
             $0.textColor = .white000
             $0.font = .fontGuide(.body1_bold)
+        }
+        
+        todoListView.do {
+            $0.rowHeight = SizeLiterals.Screen.screenHeight * 70 / 812
+            $0.bounces = true
+            $0.backgroundColor = .gray600
+            $0.separatorColor = .gray400
+            $0.contentInset = .zero
+            $0.isScrollEnabled = false
+            $0.isUserInteractionEnabled = true
         }
     }
     
@@ -141,10 +174,9 @@ final class MonthTodoViewController: BaseViewController {
         }
         
         contentView.snp.makeConstraints {
-            $0.top.equalToSuperview() // Update this line
-            $0.leading.trailing.equalToSuperview() // Update this line
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
             $0.width.equalTo(scrollView.snp.width)
-//            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 400 / 812)
         }
         
         titleLabel.snp.makeConstraints {
@@ -197,9 +229,14 @@ final class MonthTodoViewController: BaseViewController {
         todoListView.snp.makeConstraints {
             $0.top.equalTo(todoListLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 11 / 812)
             $0.bottom.equalToSuperview()
-            $0.leading.trailing.equalToSuperview() // Update this line
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 72 / 812) // Update this line
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(300)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth)
         }
+    }
+    
+    override func setRegister() {
+        todoListView.register(MonthTodoListViewCell.self, forCellReuseIdentifier: MonthTodoListViewCell.className)
     }
     
     private func configure() {
@@ -224,6 +261,11 @@ final class MonthTodoViewController: BaseViewController {
             }
             self.weekStackView.addArrangedSubview(label)
         }
+    }
+    
+    @objc
+    private func testInput() {
+        print("눌림")
     }
 }
 
