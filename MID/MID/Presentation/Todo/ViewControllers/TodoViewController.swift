@@ -38,6 +38,9 @@ final class TodoViewController: BaseViewController {
             self.dayTodos = menuList
         }).disposed(by: disposeBag)
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "교내 모집공고 조회", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = .white000
+        
     }
     
     // MARK: - Properties
@@ -48,6 +51,7 @@ final class TodoViewController: BaseViewController {
             .bind { [weak self] in
                 guard let self else { return }
                 self.viewModel.inputs.lookUpButtonTap()
+                self.pushToNoticeViewController()
             }
             .disposed(by: disposeBag)
         
@@ -88,6 +92,12 @@ final class TodoViewController: BaseViewController {
     
     override func setRegister() {
         todoView.todoTableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.className)
+    }
+    
+    private func pushToNoticeViewController() {
+        let vc = NoticeViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
