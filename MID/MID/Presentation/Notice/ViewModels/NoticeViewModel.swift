@@ -11,11 +11,7 @@ import RxCocoa
 import RxSwift
 
 protocol NoticeViewModelInput {
-    func myInformationDidTap()
-    func interestModifyDidTap()
-    func pushAlarmDidTap()
-    func logOutDidTap()
-    func withdrawalDidTap()
+
 }
 
 protocol NoticeViewModelOutput {
@@ -28,8 +24,8 @@ protocol NoticeViewModelType {
 
 final class NoticeViewModel: NoticeViewModelInput, NoticeViewModelOutput, NoticeViewModelType {
     
-    var inputs: MyPageViewModelInput { return self }
-    var outputs: MyPageViewModelOutput { return self }
+    var inputs: NoticeViewModelInput { return self }
+    var outputs: NoticeViewModelOutput { return self }
     
     init() {
         
