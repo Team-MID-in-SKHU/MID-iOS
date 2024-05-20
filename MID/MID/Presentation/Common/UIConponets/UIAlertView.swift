@@ -1,5 +1,5 @@
 //
-//  UIAlertview.swift
+//  UIAlertView.swift
 //  MID
 //
 //  Created by 천성우 on 5/17/24.
@@ -17,15 +17,16 @@ enum alertViewType {
     case twoLint
 }
 
-final class UIAlertview: BaseView {
+final class UIAlertView: BaseView {
     
     // MARK: - UI Components
 
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
     private let brView = UIView()
-    private let cancelButton = UIButton()
-    private let checkButton = UIButton()
+    private let lineView = UIView()
+    let cancelButton = UIButton()
+    let checkButton = UIButton()
     
     // MARK: - UI Components Property
     
@@ -60,16 +61,21 @@ final class UIAlertview: BaseView {
             $0.backgroundColor = .gray300
         }
         
+        lineView.do {
+            $0.backgroundColor = .gray300
+        }
+        
         cancelButton.do {
             $0.setTitle("취소", for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
-            $0.titleLabel?.textColor = .red400
+            $0.setTitleColor(.red400, for: .normal)
         }
         
         checkButton.do {
             $0.setTitle("확인", for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
-            $0.titleLabel?.textColor = .gray100
+            $0.setTitleColor(.gray100, for: .normal)
+
         }
     }
     
@@ -80,7 +86,7 @@ final class UIAlertview: BaseView {
         
         switch alertType {
         case .oneLine:
-            addSubviews(titleLabel, brView, cancelButton, checkButton)
+            addSubviews(titleLabel, brView, lineView, cancelButton, checkButton)
             
             titleLabel.snp.makeConstraints {
                 $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 34 / 812)
@@ -91,6 +97,13 @@ final class UIAlertview: BaseView {
                 $0.bottom.equalToSuperview().offset(-SizeLiterals.Screen.screenHeight * 50 / 812)
                 $0.horizontalEdges.equalToSuperview()
                 $0.height.equalTo(1)
+            }
+            
+            lineView.snp.makeConstraints {
+                $0.top.equalTo(cancelButton.snp.top)
+                $0.centerX.equalToSuperview()
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+                $0.width.equalTo(1)
             }
             
             cancelButton.snp.makeConstraints {
@@ -107,9 +120,8 @@ final class UIAlertview: BaseView {
                 $0.width.equalTo(SizeLiterals.Screen.screenWidth * 145 / 375)
             }
             
-            print("미아우 ㅋㅋ")
         case .twoLint:
-            addSubviews(titleLabel, subTitleLabel, brView, cancelButton, checkButton)
+            addSubviews(titleLabel, subTitleLabel, brView, lineView, cancelButton, checkButton)
             
             titleLabel.snp.makeConstraints {
                 $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 34 / 812)
@@ -125,6 +137,13 @@ final class UIAlertview: BaseView {
                 $0.bottom.equalToSuperview().offset(-SizeLiterals.Screen.screenHeight * 50 / 812)
                 $0.horizontalEdges.equalToSuperview()
                 $0.height.equalTo(1)
+            }
+            
+            lineView.snp.makeConstraints {
+                $0.top.equalTo(cancelButton.snp.top)
+                $0.centerX.equalToSuperview()
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+                $0.width.equalTo(1)
             }
             
             cancelButton.snp.makeConstraints {
