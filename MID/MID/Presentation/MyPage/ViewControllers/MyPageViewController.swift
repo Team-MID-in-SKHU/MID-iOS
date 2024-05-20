@@ -24,7 +24,7 @@ final class MyPageViewController: BaseViewController {
     private let myPageListTableView = UITableView()
     private let withdrawalButton = UIButton()
     
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.outputs.myPageMenuList.subscribe(onNext: { menuList in
@@ -55,7 +55,8 @@ final class MyPageViewController: BaseViewController {
                 case 3:
                     // 로그아웃
                     input.logOutDidTap()
-                    self.logoutSuccess()
+                    self.didTapLogOut()
+                    //  self.logoutSuccess()
                 default:
                     break
                 }
@@ -66,6 +67,7 @@ final class MyPageViewController: BaseViewController {
             .bind { [weak self] in
                 guard let self else { return }
                 self.viewModel.inputs.withdrawalDidTap()
+                self.didTapSignOut()
             }
             .disposed(by: disposeBag)
         
@@ -137,5 +139,17 @@ final class MyPageViewController: BaseViewController {
             window.rootViewController = rootVC
             window.makeKeyAndVisible()
         }
+    }
+    
+    private func didTapLogOut() {
+        let finishedAlertView = MyPageAlertViewController(alertType: .logOut)
+        finishedAlertView.modalPresentationStyle = .overFullScreen
+        self.present(finishedAlertView, animated: false)
+    }
+    
+    private func didTapSignOut() {
+        let finishedAlertView = MyPageAlertViewController(alertType: .signOut)
+        finishedAlertView.modalPresentationStyle = .overFullScreen
+        self.present(finishedAlertView, animated: false)
     }
 }
