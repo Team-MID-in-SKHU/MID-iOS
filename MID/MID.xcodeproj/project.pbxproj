@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		251416682BFF1A800074A2E7 /* UIEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251416672BFF1A800074A2E7 /* UIEmptyView.swift */; };
 		252A1D1B2BF48125006652B0 /* SignUpPageSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */; };
 		252A1D1D2BF487A4006652B0 /* SignUpThirdPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */; };
 		252A1D1F2BF48C2C006652B0 /* SignUpPageThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */; };
@@ -82,7 +83,6 @@
 		25AF09712BF734EC0018E9D1 /* UIAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF09702BF734EC0018E9D1 /* UIAlertView.swift */; };
 		25AF09732BFADE050018E9D1 /* MyPageAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF09722BFADE050018E9D1 /* MyPageAlertViewController.swift */; };
 		25C13D8E2BCD5CCE00EEF0E8 /* LaterTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C13D8D2BCD5CCE00EEF0E8 /* LaterTodoView.swift */; };
-		25C13D902BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift */; };
 		25C13D932BCD625E00EEF0E8 /* LaterTodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C13D922BCD625E00EEF0E8 /* LaterTodoModel.swift */; };
 		25CB88612BDE8611008E68EC /* MonthTodoListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB88602BDE8611008E68EC /* MonthTodoListViewCell.swift */; };
 		25D74A912BD1FA430052BACC /* MonthTodoCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D74A902BD1FA430052BACC /* MonthTodoCalendarCollectionViewCell.swift */; };
@@ -90,6 +90,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		251416672BFF1A800074A2E7 /* UIEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEmptyView.swift; sourceTree = "<group>"; };
 		252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageSecondViewController.swift; sourceTree = "<group>"; };
 		252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdPageView.swift; sourceTree = "<group>"; };
 		252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageThirdViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +154,6 @@
 		25AF09702BF734EC0018E9D1 /* UIAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertView.swift; sourceTree = "<group>"; };
 		25AF09722BFADE050018E9D1 /* MyPageAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlertViewController.swift; sourceTree = "<group>"; };
 		25C13D8D2BCD5CCE00EEF0E8 /* LaterTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTodoView.swift; sourceTree = "<group>"; };
-		25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTodoListTableHeaderView.swift; sourceTree = "<group>"; };
 		25C13D922BCD625E00EEF0E8 /* LaterTodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterTodoModel.swift; sourceTree = "<group>"; };
 		25CB88602BDE8611008E68EC /* MonthTodoListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoListViewCell.swift; sourceTree = "<group>"; };
 		25D74A902BD1FA430052BACC /* MonthTodoCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -290,6 +290,7 @@
 				258F7AB02BF2F70400B0A2CF /* UnderLineTextField.swift */,
 				258F7AB42BF33A1900B0A2CF /* UIPercentBar.swift */,
 				25AF09702BF734EC0018E9D1 /* UIAlertView.swift */,
+				251416672BFF1A800074A2E7 /* UIEmptyView.swift */,
 			);
 			path = UIConponets;
 			sourceTree = "<group>";
@@ -496,7 +497,6 @@
 			children = (
 				258F41372BC37C9E00B5B942 /* LookUpButtonView.swift */,
 				259ABFD32BBFA5AF00EBF9D6 /* TodoListTableViewCell.swift */,
-				25C13D8F2BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -753,7 +753,6 @@
 				25AF09732BFADE050018E9D1 /* MyPageAlertViewController.swift in Sources */,
 				258F7AB32BF3376400B0A2CF /* SignUpSecondPageView.swift in Sources */,
 				252A1D1F2BF48C2C006652B0 /* SignUpPageThirdViewController.swift in Sources */,
-				25C13D902BCD5D1C00EEF0E8 /* LaterTodoListTableHeaderView.swift in Sources */,
 				259ABFF32BBFA68E00EBF9D6 /* OnboardingViewController.swift in Sources */,
 				258F7AAF2BF2EE8900B0A2CF /* SignUpFirstPageView.swift in Sources */,
 				2571898A2BF7043300D03C95 /* NoticeSearchBarView.swift in Sources */,
@@ -772,6 +771,7 @@
 				258F7AB52BF33A1900B0A2CF /* UIPercentBar.swift in Sources */,
 				25CB88612BDE8611008E68EC /* MonthTodoListViewCell.swift in Sources */,
 				259ABFE82BBFA65700EBF9D6 /* LoginView.swift in Sources */,
+				251416682BFF1A800074A2E7 /* UIEmptyView.swift in Sources */,
 				255CF1BC2BBBBEA800107219 /* ColorLiterals.swift in Sources */,
 				259ABFBA2BBFA2DE00EBF9D6 /* MyPageViewModel.swift in Sources */,
 				258F7AAD2BF2EB7100B0A2CF /* SignUpViewController.swift in Sources */,
