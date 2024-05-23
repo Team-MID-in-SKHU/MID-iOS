@@ -28,6 +28,7 @@ final class LookUpButtonView: BaseView {
     // MARK: - UI Components Property
     
     override func setStyles() {
+        
         titleLabel.do {
             $0.text = "나의 할 일"
             $0.textColor = .white000

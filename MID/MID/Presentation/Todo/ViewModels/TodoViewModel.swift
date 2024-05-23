@@ -16,7 +16,7 @@ protocol TodoViewModelInput {
 
 protocol TodoViewModelOutput {
     var todayTodoList: BehaviorRelay<[String]> { get }
-    var laterTodoList: BehaviorRelay<[DayTodo]> { get }
+    var laterTodoList: BehaviorRelay<[String]> { get }
 }
 
 protocol TodoViewModelType {
@@ -27,16 +27,17 @@ protocol TodoViewModelType {
 final class TodoViewModel: TodoViewModelInput, TodoViewModelOutput, TodoViewModelType {
     
     var todayTodoList: BehaviorRelay<[String]> = BehaviorRelay(value: [])
-    var laterTodoList: BehaviorRelay<[DayTodo]> = BehaviorRelay(value: [])
+    var laterTodoList: BehaviorRelay<[String]> = BehaviorRelay(value: [])
 
     
     private let testTodoList: [String] = [
         "IT&미디어콘텐츠 경진대회 참가 신청", "IT융합자율학부 야식사업"
     ]
     
-    var testLaterdata = dummyLaterTodoData()
     
-    lazy private var testLaterTodoList: [DayTodo] = testLaterdata.todos
+    private let testLaterTodoList: [String] = [
+        "IT&미디어콘텐츠 경진대회 참가 신청", "IT융합자율학부 야식사업"
+    ]
     
     
     var inputs: TodoViewModelInput { return self }
@@ -44,7 +45,7 @@ final class TodoViewModel: TodoViewModelInput, TodoViewModelOutput, TodoViewMode
     
     init() {
         todayTodoList.accept(testTodoList)
-        laterTodoList.accept(testLaterTodoList)
+//        laterTodoList.accept(testLaterTodoList)
     }
     
     func lookUpButtonTap() {

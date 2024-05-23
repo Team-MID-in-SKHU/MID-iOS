@@ -11,11 +11,12 @@ import Then
 import SnapKit
 
 final class TodoListTableViewCell: UITableViewCell {
-    
-    
+
     private let todoTableFrame = UIView()
     private let todoTitleLabel = UILabel()
-    private let todoCheckButton = UIButton()
+    let todoCheckButton = UIButton()
+    
+    var toggleInput: Bool = true
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -84,13 +85,10 @@ extension TodoListTableViewCell {
     func configureWith(componentTitle: String) {
         todoTitleLabel.text = componentTitle
     }
-//    
-//    func configureLater(data: [DayTodo]) {
-//        todoTitleLabel.text = data.todos.
-//    }
     
     @objc
-    func setCheckButton(complete: Bool) {
-        complete ? todoCheckButton.setImage(ImageLiterals.Todo.checkBox_on, for: .normal) : todoCheckButton.setImage(ImageLiterals.Todo.checkBox_off, for: .normal)
+    func setCheckButton() {
+        self.toggleInput ? todoCheckButton.setImage(ImageLiterals.Todo.checkBox_on, for: .normal) : todoCheckButton.setImage(ImageLiterals.Todo.checkBox_off, for: .normal)
+        toggleInput.toggle()
     }
 }
