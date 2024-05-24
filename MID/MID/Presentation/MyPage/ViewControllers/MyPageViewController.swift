@@ -49,6 +49,7 @@ final class MyPageViewController: BaseViewController {
                 case 1:
                     // 관심사 수정
                     input.interestModifyDidTap()
+                    self.didTapInterest()
                 case 2:
                     // 푸쉬알림 설정
                     input.pushAlarmDidTap()
@@ -121,6 +122,12 @@ final class MyPageViewController: BaseViewController {
     
     private func didTapLogOut() {
         let finishedAlertView = MyPageAlertViewController(alertType: .logOut)
+        finishedAlertView.modalPresentationStyle = .overFullScreen
+        self.present(finishedAlertView, animated: false)
+    }
+    
+    private func didTapInterest() {
+        let finishedAlertView = MyPageAlertViewController(alertType: .select)
         finishedAlertView.modalPresentationStyle = .overFullScreen
         self.present(finishedAlertView, animated: false)
     }

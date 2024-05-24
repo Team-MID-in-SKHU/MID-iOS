@@ -16,6 +16,7 @@ import Then
 enum myPageAlertType {
     case signOut
     case logOut
+    case select
 }
 
 final class MyPageAlertViewController: BaseViewController {
@@ -26,6 +27,7 @@ final class MyPageAlertViewController: BaseViewController {
 
     private let logoutAlertView = UIAlertView(frame: .zero, title: "로그아웃 하시겠습니까?", subTitle: "", alertType: .oneLine)
     private let signoutAlertView = UIAlertView(frame: .zero, title: "탈퇴하시겠습니까?", subTitle: "", alertType: .oneLine)
+    private let selectInterestsAlertView = UIAlertView(frame: .zero, title: "공개 일정", subTitle: "개인 일정", alertType: .selectInterests)
     
     // MARK: - Properties
     
@@ -73,6 +75,14 @@ final class MyPageAlertViewController: BaseViewController {
                 self.didTapCheckButton()
             }
             .disposed(by: disposeBag)
+        
+        
+        selectInterestsAlertView.cancelButton.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                self.didTapCheckButton()
+            }
+            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -102,7 +112,16 @@ final class MyPageAlertViewController: BaseViewController {
                 $0.width.equalTo(SizeLiterals.Screen.screenWidth * 290 / 375)
                 $0.height.equalTo(SizeLiterals.Screen.screenHeight * 140 / 812)
             }
+        case .select:
+            view.addSubviews(selectInterestsAlertView)
+            
+            selectInterestsAlertView.snp.makeConstraints {
+                $0.centerX.centerY.equalToSuperview()
+                $0.width.equalTo(SizeLiterals.Screen.screenWidth * 300 / 375)
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 330 / 812)
+            }
         }
+        
     }
     
     // MARK: - Methods
