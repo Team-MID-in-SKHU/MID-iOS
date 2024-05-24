@@ -47,6 +47,10 @@ extension UIColor {
         return UIColor(hex: "#DEEFED")
     }
     
+    static var diamon700: UIColor {
+        return UIColor(hex: "#7FBBB3")
+    }
+    
     static var white000: UIColor {
         return UIColor(hex: "#FFFFFF")
     }
