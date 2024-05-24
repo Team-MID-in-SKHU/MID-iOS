@@ -15,13 +15,17 @@ import RxCocoa
 final class SignUpPageSecondViewController: BaseViewController {
     
     
-    private let viewModel = TodoViewModel()
+    private let viewModel: LoginViewModel
     private let disposeBag = DisposeBag()
     
     // MARK: - UI Components
     
     private let signUpSecondPage = SignUpSecondPageView()
     
+    // MARK: - Properties
+    
+    
+    // MARK: - Initializer
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +34,10 @@ final class SignUpPageSecondViewController: BaseViewController {
         self.navigationController?.navigationBar.tintColor = .white000
     }
     
-    // MARK: - Properties
-    
+    init(viewModel: LoginViewModel){
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
     
     override func bindViewModel() {
         signUpSecondPage.nextButton.rx.tap
@@ -57,11 +63,14 @@ final class SignUpPageSecondViewController: BaseViewController {
     }
     
     private func pushThirdPage() {
-        let vc = SignUpPageThirdViewController()
+        let vc = SignUpPageThirdViewController(viewModel: self.viewModel)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 

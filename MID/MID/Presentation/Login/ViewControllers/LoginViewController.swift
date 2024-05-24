@@ -15,20 +15,20 @@ import RxCocoa
 final class LoginViewController: BaseViewController {
 
     
-    private let viewModel = TodoViewModel()
+    private let viewModel = LoginViewModel()
     private let disposeBag = DisposeBag()
     
     // MARK: - UI Components
     
     private let loginView = LoginView()
-    
+
+    // MARK: - Properties
+
+    // MARK: - Initializer
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    // MARK: - Properties
-
     
     override func bindViewModel() {
         loginView.signInButton.rx.tap
@@ -77,7 +77,7 @@ final class LoginViewController: BaseViewController {
     
     
     private func pushToSignUpViewController() {
-        let vc = SignUpViewController()
+        let vc = SignUpViewController(viewModel: self.viewModel)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		250301642BFF203B00E3ADFC /* EditMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250301632BFF203B00E3ADFC /* EditMyPageViewController.swift */; };
+		250301642BFF203B00E3ADFC /* DetailsUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250301632BFF203B00E3ADFC /* DetailsUserInfoViewController.swift */; };
 		250301662BFF206100E3ADFC /* DetailsUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250301652BFF206100E3ADFC /* DetailsUserInfoView.swift */; };
+		250301682C001B7300E3ADFC /* UIInterestsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250301672C001B7300E3ADFC /* UIInterestsButton.swift */; };
 		251416682BFF1A800074A2E7 /* UIEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251416672BFF1A800074A2E7 /* UIEmptyView.swift */; };
 		252A1D1B2BF48125006652B0 /* SignUpPageSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */; };
 		252A1D1D2BF487A4006652B0 /* SignUpThirdPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */; };
@@ -92,8 +93,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		250301632BFF203B00E3ADFC /* EditMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPageViewController.swift; sourceTree = "<group>"; };
+		250301632BFF203B00E3ADFC /* DetailsUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUserInfoViewController.swift; sourceTree = "<group>"; };
 		250301652BFF206100E3ADFC /* DetailsUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUserInfoView.swift; sourceTree = "<group>"; };
+		250301672C001B7300E3ADFC /* UIInterestsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIInterestsButton.swift; sourceTree = "<group>"; };
 		251416672BFF1A800074A2E7 /* UIEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEmptyView.swift; sourceTree = "<group>"; };
 		252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageSecondViewController.swift; sourceTree = "<group>"; };
 		252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdPageView.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				258F7AB42BF33A1900B0A2CF /* UIPercentBar.swift */,
 				25AF09702BF734EC0018E9D1 /* UIAlertView.swift */,
 				251416672BFF1A800074A2E7 /* UIEmptyView.swift */,
+				250301672C001B7300E3ADFC /* UIInterestsButton.swift */,
 			);
 			path = UIConponets;
 			sourceTree = "<group>";
@@ -439,7 +442,7 @@
 			children = (
 				259ABFB72BBFA2D700EBF9D6 /* MyPageViewController.swift */,
 				25AF09722BFADE050018E9D1 /* MyPageAlertViewController.swift */,
-				250301632BFF203B00E3ADFC /* EditMyPageViewController.swift */,
+				250301632BFF203B00E3ADFC /* DetailsUserInfoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -721,7 +724,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				255CF1D72BBBC4B000107219 /* UITabBar+.swift in Sources */,
-				250301642BFF203B00E3ADFC /* EditMyPageViewController.swift in Sources */,
+				250301642BFF203B00E3ADFC /* DetailsUserInfoViewController.swift in Sources */,
 				252A1D1D2BF487A4006652B0 /* SignUpThirdPageView.swift in Sources */,
 				255CF1BE2BBBBEAD00107219 /* FontLiterals.swift in Sources */,
 				259ABFCC2BBFA4FC00EBF9D6 /* MyPageListTableViewCell.swift in Sources */,
@@ -731,6 +734,7 @@
 				253FD4152BE1D55D000912CB /* UITextField+.swift in Sources */,
 				255CF1C02BBBBEB200107219 /* ImageLiterals.swift in Sources */,
 				25D74A932BD1FAA50052BACC /* MonthTodoViewController.swift in Sources */,
+				250301682C001B7300E3ADFC /* UIInterestsButton.swift in Sources */,
 				255CF1C22BBBBEB800107219 /* SizeLiterals.swift in Sources */,
 				259ABFBE2BBFA2EB00EBF9D6 /* MonthTodoViewModel.swift in Sources */,
 				258F41322BC2835E00B5B942 /* UIView+.swift in Sources */,

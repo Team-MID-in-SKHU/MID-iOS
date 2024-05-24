@@ -15,7 +15,7 @@ import RxCocoa
 final class SignUpPageThirdViewController: BaseViewController {
     
     
-    private let viewModel = TodoViewModel()
+    private let viewModel: LoginViewModel
     private let disposeBag = DisposeBag()
     
     // MARK: - UI Components
@@ -23,14 +23,19 @@ final class SignUpPageThirdViewController: BaseViewController {
     private lazy var scrollView = UIScrollView()
     private let signUpThirdPage = SignUpThirdPageView()
     
+    // MARK: - Properties
+    
+    
+    // MARK: - Initializer
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
-    // MARK: - Properties
-    
+    init(viewModel: LoginViewModel){
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
     
     override func bindViewModel() {
         signUpThirdPage.nextButton.rx.tap
@@ -70,6 +75,10 @@ final class SignUpPageThirdViewController: BaseViewController {
             window.rootViewController = rootVC
             window.makeKeyAndVisible()
         }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
