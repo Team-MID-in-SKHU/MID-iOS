@@ -14,6 +14,7 @@ protocol MonthTodoViewModelInput {
 }
 
 protocol MonthTodoViewModelOutput {
+    var midList: BehaviorRelay<[String]> { get }
 
 }
 
@@ -24,8 +25,16 @@ protocol MonthTodoViewModelType {
 
 final class MonthTodoViewModel: MonthTodoViewModelInput, MonthTodoViewModelOutput, MonthTodoViewModelType {
     
+    var midList: BehaviorRelay<[String]> = BehaviorRelay(value: [])
+    
     var inputs: MonthTodoViewModelInput { return self }
     var outputs: MonthTodoViewModelOutput { return self }
     
-    init() {}
+    private let myMidList: [String] = [
+        "임시 테스트 1", "임시 테스트 2", "임시 테스트 3"
+    ]
+    
+    init() {
+        midList.accept(myMidList)
+    }
 }

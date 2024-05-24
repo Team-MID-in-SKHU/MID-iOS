@@ -19,9 +19,9 @@ final class LoginView: BaseView {
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
     private let idLabel = UILabel()
-    private let idField = UITextField()
+    private let idField = UnderLineTextField()
     private let pwLabel = UILabel()
-    private let pwField = UITextField()
+    private let pwField = UnderLineTextField()
     let signUpButton = UIButton()
     let signInButton = UIButton()
     private let forgetPwLabel = UILabel()
@@ -54,30 +54,33 @@ final class LoginView: BaseView {
         
         idLabel.do {
             $0.text = "아이디"
-            $0.font = .fontGuide(.detail1_reg)
+            $0.font = .fontGuide(.head4)
             $0.textColor = .white000
         }
         
         idField.do {
-            $0.placeholder = "학번을 입력해주세요"
-            $0.setLeftPadding(amount: 12)
-            $0.font = .fontGuide(.detail1_reg)
+            $0.setPlaceholder(
+                placeeholder: "학번을 입력해주세요",
+                color: .gray100
+            )
+            $0.font = .fontGuide(.body1_bold)
             $0.textColor = .white000
-            $0.setPlaceholderColor(.gray100)
         }
         
         pwLabel.do {
             $0.text = "비밀번호"
-            $0.font = .fontGuide(.detail1_bold)
+            $0.font = .fontGuide(.head4)
             $0.textColor = .white000
         }
         
         pwField.do {
-            $0.placeholder = "비밀번호를 입력해주세요"
-            $0.setLeftPadding(amount: 12)
-            $0.font = .fontGuide(.detail1_reg)
+            $0.setPlaceholder(
+                placeeholder: "비밀번호를 입력해주세요",
+                color: .gray100
+            )
+            $0.font = .fontGuide(.body1_bold)
             $0.textColor = .white000
-            $0.setPlaceholderColor(.gray100)
+            $0.isSecureTextEntry = true
         }
         
         signUpButton.do {
@@ -133,22 +136,24 @@ final class LoginView: BaseView {
         
         idLabel.snp.makeConstraints {
             $0.top.equalTo(subTitleLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 60 / 812)
-            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 17 / 375)
+            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 17 / 375)
         }
         
         idField.snp.makeConstraints {
             $0.top.equalTo(idLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 8 / 812)
-            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 17 / 375)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 340 / 375)
         }
         
         pwLabel.snp.makeConstraints {
             $0.top.equalTo(idField.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 30 / 812)
-            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 17 / 375)
+            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 17 / 375)
         }
         
         pwField.snp.makeConstraints {
             $0.top.equalTo(pwLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 8 / 812)
-            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 17 / 375)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 340 / 375)
         }
         
         signUpButton.snp.makeConstraints {

@@ -22,18 +22,17 @@ final class MyPageViewController: BaseViewController {
     
     private let myPageProfileView = UserInfoView()
     private let myPageListTableView = UITableView()
-    private let withdrawalButton = UIButton()
+
+    // MARK: - Properties
+
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.outputs.myPageMenuList.subscribe(onNext: { menuList in
             print(menuList)
         }).disposed(by: disposeBag)
-        
     }
     
-    // MARK: - Properties
     
     override func bindViewModel() {
         
@@ -46,26 +45,22 @@ final class MyPageViewController: BaseViewController {
                 case 0:
                     // 내 정보 보기
                     input.myInformationDidTap()
+                    self.pushToDetailsUserInfoViewController()
                 case 1:
                     // 관심사 수정
                     input.interestModifyDidTap()
+                    self.didTapInterest()
                 case 2:
                     // 푸쉬알림 설정
                     input.pushAlarmDidTap()
                 case 3:
                     // 로그아웃
                     input.logOutDidTap()
-                    self.logoutSuccess()
+                    self.didTapLogOut()
+                    //  self.logoutSuccess()
                 default:
                     break
                 }
-            }
-            .disposed(by: disposeBag)
-        
-        withdrawalButton.rx.tap
-            .bind { [weak self] in
-                guard let self else { return }
-                self.viewModel.inputs.withdrawalDidTap()
             }
             .disposed(by: disposeBag)
         
@@ -91,17 +86,10 @@ final class MyPageViewController: BaseViewController {
             $0.contentInset = .zero
             $0.isScrollEnabled = false
         }
-        
-        withdrawalButton.do {
-            $0.setTitle("회원 탈퇴", for: .normal)
-            $0.setTitleColor(.gray300, for: .normal)
-            $0.titleLabel?.font = .fontGuide(.detail3_reg)
-            $0.setUnderline()
-        }
     }
     
     override func setLayout() {
-        view.addSubviews(myPageProfileView, myPageListTableView, withdrawalButton)
+        view.addSubviews(myPageProfileView, myPageListTableView)
         
         myPageProfileView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -113,13 +101,6 @@ final class MyPageViewController: BaseViewController {
             $0.top.equalTo(myPageProfileView.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 0.0369)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 0.2956)
-        }
-        
-        withdrawalButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(18)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(12)
-            $0.height.equalTo(21)
-            $0.width.equalTo(44)
         }
     }
     
@@ -137,5 +118,25 @@ final class MyPageViewController: BaseViewController {
             window.rootViewController = rootVC
             window.makeKeyAndVisible()
         }
+    }
+    
+    private func didTapLogOut() {
+        let finishedAlertView = MyPageAlertViewController(alertType: .logOut)
+        finishedAlertView.modalPresentationStyle = .overFullScreen
+        self.present(finishedAlertView, animated: false)
+    }
+    
+    private func didTapInterest() {
+        let finishedAlertView = MyPageAlertViewController(alertType: .select)
+        finishedAlertView.modalPresentationStyle = .overFullScreen
+        self.present(finishedAlertView, animated: false)
+    }
+    
+    private func pushToDetailsUserInfoViewController() {
+        let vc = DetailsUserInfoViewController(viewModel: self.viewModel)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "내 정보 조회", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = .white000
     }
 }

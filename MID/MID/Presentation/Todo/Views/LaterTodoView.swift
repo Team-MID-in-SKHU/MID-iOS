@@ -17,6 +17,7 @@ final class LaterTodoView: BaseView {
     // MARK: - UI Components
     
     let laterTodoTableView = UITableView()
+    private let emptyView = UIEmptyView()
     
     // MARK: - UI Components Property
 
@@ -41,6 +42,7 @@ final class LaterTodoView: BaseView {
             $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             $0.contentInset = .zero
             $0.isScrollEnabled = false
+            $0.backgroundView = emptyView
         }
     }
     
@@ -51,7 +53,9 @@ final class LaterTodoView: BaseView {
         addSubviews(laterTodoTableView)
         
         laterTodoTableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 11 / 812)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-SizeLiterals.Screen.screenHeight * 12 / 812)
         }
     }
     

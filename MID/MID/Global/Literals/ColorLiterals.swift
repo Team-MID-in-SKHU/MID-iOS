@@ -11,12 +11,20 @@ extension UIColor {
     
     // MARK: - Gray
     
+    static var gray50: UIColor {
+        return UIColor(hex: "8B8B8D")
+    }
+    
     static var gray100: UIColor {
         return UIColor(hex: "#8B8B8D")
     }
 
     static var gray200: UIColor {
         return UIColor(hex: "#696969")
+    }
+    
+    static var gray250: UIColor {
+        return UIColor(hex: "#2F2E33")
     }
     
     static var gray300: UIColor {
@@ -37,6 +45,10 @@ extension UIColor {
     
     static var diamon000: UIColor {
         return UIColor(hex: "#DEEFED")
+    }
+    
+    static var diamon700: UIColor {
+        return UIColor(hex: "#7FBBB3")
     }
     
     static var white000: UIColor {

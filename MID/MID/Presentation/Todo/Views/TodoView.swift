@@ -19,6 +19,7 @@ final class TodoView: BaseView {
     private let titleLabel = UILabel()
     private let todayLabel = UILabel()
     let todoTableView = UITableView()
+    private let emptyView = UIEmptyView()
     
     // MARK: - UI Components Property
 
@@ -56,6 +57,7 @@ final class TodoView: BaseView {
             $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             $0.contentInset = .zero
             $0.isScrollEnabled = false
+            $0.backgroundView = emptyView
         }
     }
     
@@ -77,7 +79,8 @@ final class TodoView: BaseView {
         
         todoTableView.snp.makeConstraints {
             $0.top.equalTo(todayLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 12 / 812)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-SizeLiterals.Screen.screenHeight * 12 / 812)
         }
     }
     
