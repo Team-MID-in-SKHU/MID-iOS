@@ -19,7 +19,10 @@ final class DetailsUserInfoView: BaseView {
     private let userNameTextField = UnderLineTextField()
     private let userDepartment = UILabel()
     private let userDepartmentTextField = UnderLineTextField()
-    
+    let withdrawalButton = UIButton()
+
+    // MARK: - Properties
+
     private let userNameString: String
     private let userDepartmnetString: String
 
@@ -68,12 +71,19 @@ final class DetailsUserInfoView: BaseView {
             $0.font = .fontGuide(.body3_bold)
             $0.isUserInteractionEnabled = false
         }
+        
+        withdrawalButton.do {
+            $0.setTitle("회원 탈퇴", for: .normal)
+            $0.setTitleColor(.gray300, for: .normal)
+            $0.titleLabel?.font = .fontGuide(.detail3_reg)
+            $0.setUnderline()
+        }
     }
     
     // MARK: - Layout Helper
     
     override func setLayout() {
-        addSubviews(userImage, userName, userNameTextField, userDepartment, userDepartmentTextField)
+        addSubviews(userImage, userName, userNameTextField, userDepartment, userDepartmentTextField, withdrawalButton)
         
         userImage.snp.makeConstraints {
             $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 20 / 812)
@@ -87,26 +97,30 @@ final class DetailsUserInfoView: BaseView {
         }
         
         userNameTextField.snp.makeConstraints {
-            $0.top.equalTo(userName.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 21 / 812)
+            $0.top.equalTo(userName.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 15 / 812)
             $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 18 / 375)
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 339 / 375)
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 48 / 812)
         }
         
         userDepartment.snp.makeConstraints {
-            $0.top.equalTo(userImage.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 39 / 812)
+            $0.top.equalTo(userNameTextField.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 39 / 812)
             $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 18 / 375)
         }
         
         userDepartmentTextField.snp.makeConstraints {
-            $0.top.equalTo(userDepartment.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 21 / 812)
+            $0.top.equalTo(userDepartment.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 15 / 812)
             $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 18 / 375)
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 339 / 375)
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 48 / 812)
         }
         
-        
-
+        withdrawalButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().offset(-SizeLiterals.Screen.screenWidth * 30 / 375)
+            $0.bottom.equalToSuperview().offset(-SizeLiterals.Screen.screenHeight * 30 / 812)
+            $0.height.equalTo(21)
+            $0.width.equalTo(44)
+        }
     }
     
     // MARK: - @objc Methods
