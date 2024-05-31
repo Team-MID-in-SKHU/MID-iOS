@@ -90,6 +90,8 @@
 		25CB88612BDE8611008E68EC /* MonthTodoListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB88602BDE8611008E68EC /* MonthTodoListViewCell.swift */; };
 		25D74A912BD1FA430052BACC /* MonthTodoCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D74A902BD1FA430052BACC /* MonthTodoCalendarCollectionViewCell.swift */; };
 		25D74A932BD1FAA50052BACC /* MonthTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D74A922BD1FAA50052BACC /* MonthTodoViewController.swift */; };
+		25DB76182C09774800239504 /* DetailsNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DB76172C09774800239504 /* DetailsNoticeViewController.swift */; };
+		25DB761A2C09775200239504 /* DetailsNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DB76192C09775200239504 /* DetailsNoticeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +166,8 @@
 		25CB88602BDE8611008E68EC /* MonthTodoListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoListViewCell.swift; sourceTree = "<group>"; };
 		25D74A902BD1FA430052BACC /* MonthTodoCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		25D74A922BD1FAA50052BACC /* MonthTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTodoViewController.swift; sourceTree = "<group>"; };
+		25DB76172C09774800239504 /* DetailsNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsNoticeViewController.swift; sourceTree = "<group>"; };
+		25DB76192C09775200239504 /* DetailsNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsNoticeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -544,7 +548,7 @@
 			isa = PBXGroup;
 			children = (
 				259ABFDB2BBFA62700EBF9D6 /* NoticeViewController.swift */,
-				250301692C00459400E3ADFC /* DetailsNoticeViewController.swift */,
+				25DB76172C09774800239504 /* DetailsNoticeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -555,7 +559,7 @@
 				259ABFDD2BBFA62D00EBF9D6 /* NoticeImageView.swift */,
 				257189892BF7043300D03C95 /* NoticeSearchBarView.swift */,
 				2571898B2BF70E3F00D03C95 /* MoreButtonView.swift */,
-				2503016B2C0045F200E3ADFC /* DetailsNoticeView.swift */,
+				25DB76192C09775200239504 /* DetailsNoticeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -749,7 +753,7 @@
 				259ABFC02BBFA2EF00EBF9D6 /* TodoViewController.swift in Sources */,
 				252A1D1B2BF48125006652B0 /* SignUpPageSecondViewController.swift in Sources */,
 				259ABFD02BBFA56F00EBF9D6 /* MonthTodoListTableViewCell.swift in Sources */,
-				2503016A2C00459400E3ADFC /* DetailsNoticeViewController.swift in Sources */,
+				25DB76182C09774800239504 /* DetailsNoticeViewController.swift in Sources */,
 				259ABFE12BBFA63500EBF9D6 /* NoticeViewModel.swift in Sources */,
 				255CF1D22BBBC3E900107219 /* TabBarController.swift in Sources */,
 				258F41382BC37C9E00B5B942 /* LookUpButtonView.swift in Sources */,
@@ -770,7 +774,7 @@
 				259ABFF32BBFA68E00EBF9D6 /* OnboardingViewController.swift in Sources */,
 				250301662BFF206100E3ADFC /* DetailsUserInfoView.swift in Sources */,
 				258F7AAF2BF2EE8900B0A2CF /* SignUpFirstPageView.swift in Sources */,
-				2503016C2C0045F200E3ADFC /* DetailsNoticeView.swift in Sources */,
+				25DB761A2C09775200239504 /* DetailsNoticeView.swift in Sources */,
 				2571898A2BF7043300D03C95 /* NoticeSearchBarView.swift in Sources */,
 				255CF1C62BBBBED400107219 /* String+.swift in Sources */,
 				259ABFDC2BBFA62700EBF9D6 /* NoticeViewController.swift in Sources */,
