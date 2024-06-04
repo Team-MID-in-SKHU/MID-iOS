@@ -9,13 +9,13 @@ import Foundation
 
 import Moya
 
-enum LoginTarget {
+enum AuthTarget {
     case login(param: LoginRequestDto)
     case tokenRefresh
     case withdraw(memberId: Int)
 }
 
-extension LoginTarget: BaseTargetType {
+extension AuthTarget: BaseTargetType {
     
     var path: String {
         switch self {

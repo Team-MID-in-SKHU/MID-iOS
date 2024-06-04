@@ -26,14 +26,14 @@ final class TokenManager {
                 return
             }
             guard let data = response?.data else { return }
-            APIConstants.jwtToken = data.accessToken
-            APIConstants.refreshToken = data.refreshToken
+//            APIConstants.jwtToken = data.accessToken
+//            APIConstants.refreshToken = data.refreshToken
             if let accessTokenData = data.accessToken.data(using: .utf8) {
-                KeychainHelper.save(key: I18N.Auth.jwtToken, data: accessTokenData)
+//                KeychainHelper.save(key: I18N.Auth.jwtToken, data: accessTokenData)
             }
 
             if let refreshTokenData = data.refreshToken.data(using: .utf8) {
-                KeychainHelper.save(key: I18N.Auth.refreshToken, data: refreshTokenData)
+//                KeychainHelper.save(key: I18N.Auth.refreshToken, data: refreshTokenData)
             }
             retryHandler(true)
         }
@@ -54,14 +54,14 @@ final class TokenManager {
             .do(onNext: { data in
                 print("🔥")
                 print("New Token is now valid.")
-                APIConstants.jwtToken = data.accessToken
-                APIConstants.refreshToken = data.refreshToken
+//                APIConstants.jwtToken = data.accessToken
+//                APIConstants.refreshToken = data.refreshToken
                 if let accessTokenData = data.accessToken.data(using: .utf8) {
-                    KeychainHelper.save(key: I18N.Auth.jwtToken, data: accessTokenData)
+//                    KeychainHelper.save(key: I18N.Auth.jwtToken, data: accessTokenData)
                 }
 
                 if let refreshTokenData = data.refreshToken.data(using: .utf8) {
-                    KeychainHelper.save(key: I18N.Auth.refreshToken, data: refreshTokenData)
+//                    KeychainHelper.save(key: I18N.Auth.refreshToken, data: refreshTokenData)
                 }
             })
             .map {_ in}
