@@ -23,3 +23,5 @@ struct LoginRequestBody: Codable {
 
 
 struct LoginResponseBody: Codable {}
+
+struct DuplicateResponseBody: Codable {}
