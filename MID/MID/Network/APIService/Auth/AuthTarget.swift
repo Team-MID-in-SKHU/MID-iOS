@@ -15,8 +15,7 @@ import RxSwift
 enum AuthTarget {
     case signUp(param: SignUpRequestBody)
     case login(param: LoginRequestBody)
-    case tokenRefresh
-    case withdraw(memberId: Int)
+    case duplicateCheck(studentNo: String)
 }
 
 extension AuthTarget: BaseTargetType {
@@ -35,11 +34,10 @@ extension AuthTarget: BaseTargetType {
             return URLConstant.signUp
         case .login:
             return URLConstant.login
-        case .tokenRefresh:
-            return URLConstant.tokenRefresh
-        case .withdraw(memberId: let memberId):
-            let path = URLConstant.memberWithdraw.replacingOccurrences(of: "{memberId}", with: String(memberId))
-            return path
+        case .duplicateCheck(let studentNo):
+            let newPath = URLConstant.duplicate
+                .replacingOccurrences(of: "{studentNo}", with: String(studentNo))
+            return newPath
         }
     }
     
@@ -47,10 +45,8 @@ extension AuthTarget: BaseTargetType {
         switch self {
         case .signUp, .login:
             return .post
-        case .tokenRefresh:
+        case .duplicateCheck:
             return .get
-        case .withdraw:
-            return .delete
         }
     }
     
@@ -62,9 +58,7 @@ extension AuthTarget: BaseTargetType {
         case .login(let parameter):
             let parameters = try! parameter.asParameter()
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case .tokenRefresh:
-            return .requestPlain
-        case .withdraw:
+        case .duplicateCheck:
             return .requestPlain
         }
     }
@@ -101,6 +95,18 @@ struct AuthService: Networkable {
             .decode(decodeType: LoginResponseBody.self)
     }
     
+    /**
+     회원가입시 학번 중복 검사를 진행합니다
+     - parameter studentNo: string
+     */
+    
+    static func getDuplicateCheck(with studentNo: String) -> Observable<[DuplicateResponseBody]> {
+        return provider.rx.request(.duplicateCheck(studentNo: studentNo))
+            .asObservable()
+            .mapError()
+            .retryOnTokenExpired()
+            .decode(decodeType: [DuplicateResponseBody].self)
+    }
 
     
 }
