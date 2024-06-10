@@ -8,19 +8,33 @@
 import Foundation
 
 import Moya
+import RxCocoa
+import RxMoya
+import RxSwift
 
 enum AuthTarget {
-    case login(param: LoginRequestDto)
+    case signUp(param: SignUpRequestBody)
+    case login(param: LoginRequestBody)
     case tokenRefresh
     case withdraw(memberId: Int)
 }
 
 extension AuthTarget: BaseTargetType {
     
+    var headers: [String : String]? {
+        APIConstants.headerWithAuthorization
+    }
+    
+    var authorizationType: AuthorizationType? {
+        return .bearer
+    }
+    
     var path: String {
         switch self {
+        case .signUp:
+            return URLConstant.signUp
         case .login:
-            return URLConstant.socialLogin
+            return URLConstant.login
         case .tokenRefresh:
             return URLConstant.tokenRefresh
         case .withdraw(memberId: let memberId):
@@ -31,7 +45,7 @@ extension AuthTarget: BaseTargetType {
     
     var method: Moya.Method {
         switch self {
-        case .login:
+        case .signUp, .login:
             return .post
         case .tokenRefresh:
             return .get
@@ -42,23 +56,52 @@ extension AuthTarget: BaseTargetType {
     
     var task: Moya.Task {
         switch self {
-        case .login(let param):
-            return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+        case .signUp(let parameter):
+            let parameters = try! parameter.asParameter()
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .login(let parameter):
+            let parameters = try! parameter.asParameter()
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         case .tokenRefresh:
             return .requestPlain
         case .withdraw:
             return .requestPlain
-        }
-    }
-    
-    var headers: [String : String]? {
-        switch self {
-        case .login(_):
-            return APIConstants.headerWithOutToken
-        case .tokenRefresh:
-            return APIConstants.headerWithRefresh
-        case .withdraw:
-            return APIConstants.headerWithAuthorization
         }
     }
 }
+
+struct AuthService: Networkable {
+    typealias Target = AuthTarget
+    private static let provider = makeProvider()
+    
+    
+    /**
+     회원가입을 합니다.
+     - parameter userData: SignUpRequestBody
+     */
+    
+    static func postSignUp(userData: SignUpRequestBody) -> Observable<SignUpResponseBody> {
+        return provider.rx.request(.signUp(param: userData))
+            .asObservable()
+            .mapError()
+            .retryOnTokenExpired()
+            .decode(decodeType: SignUpResponseBody.self)
+    }
+    
+    /**
+     로그인을 합니다.
+     - parameter userData: SignUpRequestBody
+     */
+    
+    static func postLogin(userData: LoginRequestBody) -> Observable<LoginResponseBody> {
+        return provider.rx.request(.login(param: userData))
+            .asObservable()
+            .mapError()
+            .retryOnTokenExpired()
+            .decode(decodeType: LoginResponseBody.self)
+    }
+    
+
+    
+}
+
