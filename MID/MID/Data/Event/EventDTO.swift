@@ -44,3 +44,33 @@ struct EventDetailResponseBody: Codable {
     }
 }
 
+struct DisplayEventResponseBodyElement: Codable {
+    let eventID: Int
+    let eventTitle, eventDescription, eventLocation: String
+    let imageUrls: [String]
+    let startAt, endAt: String
+    let category: [String]
+
+    enum CodingKeys: String, CodingKey {
+        case eventID = "eventId"
+        case eventTitle, eventDescription, eventLocation, imageUrls, startAt, endAt, category
+    }
+}
+
+typealias DisplayEventResponseBody = [DisplayEventResponseBodyElement]
+
+
+struct RandomEventResponseBodyElement: Codable {
+    let eventID: Int
+    let eventTitle, eventDescription, eventLocation: String
+    let imageUrls: [String]
+    let startAt, endAt: String
+    let category: [String]
+
+    enum CodingKeys: String, CodingKey {
+        case eventID = "eventId"
+        case eventTitle, eventDescription, eventLocation, imageUrls, startAt, endAt, category
+    }
+}
+
+typealias RandomEventResponseBody = [RandomEventResponseBodyElement]

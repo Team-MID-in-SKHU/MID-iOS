@@ -44,5 +44,7 @@ enum URLConstant {
     
     static let search = "/api/v1/event/search"
     static let eventDetail = "/api/v1/event/detail?id={id}"
+    static let displayEvent = "/api/v1/event/display"
+    static let randomEvent = "/api/v1/display/random"
 }
 
