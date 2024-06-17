@@ -34,5 +34,10 @@ enum URLConstant {
     static let interest = "/api/v1/interest/update"
     static let setInterest = "/api/v1/interest/register"
     static let usetInfo = "/api/v1/user/info"
+    
+    // MARK: - Image
+    
+    static let postImage = "/api/v1/s3/upload"
+    static let delImage = "/ap1/v1/s3/delete"
 }
 

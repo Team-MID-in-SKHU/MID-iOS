@@ -18,6 +18,7 @@ enum AuthTarget {
     case duplicateCheck(studentNo: String)
     case logOut
     case delUser
+    case tokenRefresh
 }
 
 extension AuthTarget: BaseTargetType {
@@ -44,6 +45,9 @@ extension AuthTarget: BaseTargetType {
             return URLConstant.loginOut
         case .delUser:
             return URLConstant.userDelete
+            
+        case .tokenRefresh:
+             return URLConstant.tokenRefresh
         }
     }
     
@@ -51,7 +55,7 @@ extension AuthTarget: BaseTargetType {
         switch self {
         case .signUp, .login, .logOut:
             return .post
-        case .duplicateCheck:
+        case .duplicateCheck, .tokenRefresh:
             return .get
         case .delUser:
             return .delete
@@ -66,7 +70,7 @@ extension AuthTarget: BaseTargetType {
         case .login(let parameter):
             let parameters = try! parameter.asParameter()
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case .duplicateCheck, .logOut, .delUser:
+        case .duplicateCheck, .logOut, .delUser, .tokenRefresh:
             return .requestPlain
         }
     }
@@ -139,5 +143,7 @@ struct AuthService: Networkable {
             .retryOnTokenExpired()
             .decode(decodeType: [UserDeleteResponseBody].self)
     }
+    
+    
 }
 
