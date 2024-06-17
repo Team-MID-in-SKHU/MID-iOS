@@ -26,6 +26,6 @@ struct LoginResponseBody: Codable {}
 
 struct DuplicateResponseBody: Codable {}
 
-struct LoginOutResponseBody: Codable {}
+struct LogOutResponseBody: Codable {}
 
 struct UserDeleteResponseBody: Codable {}

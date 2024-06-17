@@ -14,6 +14,8 @@
 		252A1D1B2BF48125006652B0 /* SignUpPageSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */; };
 		252A1D1D2BF487A4006652B0 /* SignUpThirdPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */; };
 		252A1D1F2BF48C2C006652B0 /* SignUpPageThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */; };
+		253814322C1FD38600EAB401 /* MyPageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253814312C1FD38600EAB401 /* MyPageDTO.swift */; };
+		253814352C1FD53200EAB401 /* MyPageTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253814342C1FD53200EAB401 /* MyPageTarget.swift */; };
 		253FD4152BE1D55D000912CB /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FD4142BE1D55D000912CB /* UITextField+.swift */; };
 		2558EC532BBEDACE00F01FFA /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558EC522BBEDACE00F01FFA /* UIColor+.swift */; };
 		255CF16D2BBBA95400107219 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255CF16C2BBBA95400107219 /* AppDelegate.swift */; };
@@ -71,7 +73,6 @@
 		259254852C0E968F00EA0F06 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259254842C0E968F00EA0F06 /* BaseTargetType.swift */; };
 		259254882C0E96D000EA0F06 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259254872C0E96D000EA0F06 /* Config.swift */; };
 		2592548A2C0E971200EA0F06 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259254892C0E971200EA0F06 /* ServiceError.swift */; };
-		2592548D2C0E973B00EA0F06 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592548C2C0E973B00EA0F06 /* AuthAPI.swift */; };
 		259254902C0E976600EA0F06 /* AuthTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592548F2C0E976600EA0F06 /* AuthTarget.swift */; };
 		259254982C0E97D400EA0F06 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259254972C0E97D400EA0F06 /* Encodable+.swift */; };
 		2592549C2C0E994300EA0F06 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592549B2C0E994300EA0F06 /* TokenManager.swift */; };
@@ -117,6 +118,8 @@
 		252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageSecondViewController.swift; sourceTree = "<group>"; };
 		252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdPageView.swift; sourceTree = "<group>"; };
 		252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageThirdViewController.swift; sourceTree = "<group>"; };
+		253814312C1FD38600EAB401 /* MyPageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDTO.swift; sourceTree = "<group>"; };
+		253814342C1FD53200EAB401 /* MyPageTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTarget.swift; sourceTree = "<group>"; };
 		253FD4142BE1D55D000912CB /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		2558EC522BBEDACE00F01FFA /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		255CF1692BBBA95400107219 /* MID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MID.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,7 +165,6 @@
 		259254842C0E968F00EA0F06 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		259254872C0E96D000EA0F06 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		259254892C0E971200EA0F06 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
-		2592548C2C0E973B00EA0F06 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		2592548F2C0E976600EA0F06 /* AuthTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTarget.swift; sourceTree = "<group>"; };
 		259254972C0E97D400EA0F06 /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		2592549B2C0E994300EA0F06 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
@@ -225,6 +227,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		253814302C1FD37700EAB401 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				253814312C1FD38600EAB401 /* MyPageDTO.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		253814332C1FD52100EAB401 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				253814342C1FD53200EAB401 /* MyPageTarget.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		255CF1602BBBA95400107219 = {
 			isa = PBXGroup;
 			children = (
@@ -283,7 +301,6 @@
 			children = (
 				259254792C0E92B600EA0F06 /* APIService */,
 				259254782C0E92B100EA0F06 /* ServiceError */,
-				259254772C0E92AD00EA0F06 /* API */,
 				259254762C0E92A600EA0F06 /* Base */,
 				259254862C0E96B900EA0F06 /* Enviornment */,
 			);
@@ -293,6 +310,7 @@
 		255CF1A52BBBBD7900107219 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				253814302C1FD37700EAB401 /* MyPage */,
 				259254912C0E977A00EA0F06 /* Auth */,
 				255CF1DA2BBBC4CA00107219 /* Data.swift */,
 			);
@@ -431,14 +449,6 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		259254772C0E92AD00EA0F06 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				2592548B2C0E972D00EA0F06 /* Auth */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		259254782C0E92B100EA0F06 /* ServiceError */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +460,7 @@
 		259254792C0E92B600EA0F06 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				253814332C1FD52100EAB401 /* MyPage */,
 				2592548E2C0E975900EA0F06 /* Auth */,
 			);
 			path = APIService;
@@ -461,14 +472,6 @@
 				259254872C0E96D000EA0F06 /* Config.swift */,
 			);
 			path = Enviornment;
-			sourceTree = "<group>";
-		};
-		2592548B2C0E972D00EA0F06 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				2592548C2C0E973B00EA0F06 /* AuthAPI.swift */,
-			);
-			path = Auth;
 			sourceTree = "<group>";
 		};
 		2592548E2C0E975900EA0F06 /* Auth */ = {
@@ -847,7 +850,6 @@
 				255CF1C82BBBBEDF00107219 /* NSObject+.swift in Sources */,
 				258F41342BC2931300B5B942 /* UIButton+.swift in Sources */,
 				259ABFE62BBFA65200EBF9D6 /* LoginViewController.swift in Sources */,
-				2592548D2C0E973B00EA0F06 /* AuthAPI.swift in Sources */,
 				253FD4152BE1D55D000912CB /* UITextField+.swift in Sources */,
 				255CF1C02BBBBEB200107219 /* ImageLiterals.swift in Sources */,
 				259254832C0E968300EA0F06 /* Networkable.swift in Sources */,
@@ -910,8 +912,10 @@
 				255CF16F2BBBA95400107219 /* SceneDelegate.swift in Sources */,
 				255CF1D02BBBC3D800107219 /* UIComponet.swift in Sources */,
 				259254982C0E97D400EA0F06 /* Encodable+.swift in Sources */,
+				253814352C1FD53200EAB401 /* MyPageTarget.swift in Sources */,
 				259254852C0E968F00EA0F06 /* BaseTargetType.swift in Sources */,
 				258F7AB52BF33A1900B0A2CF /* UIPercentBar.swift in Sources */,
+				253814322C1FD38600EAB401 /* MyPageDTO.swift in Sources */,
 				25CB88612BDE8611008E68EC /* MonthTodoListViewCell.swift in Sources */,
 				259ABFE82BBFA65700EBF9D6 /* LoginView.swift in Sources */,
 				251416682BFF1A800074A2E7 /* UIEmptyView.swift in Sources */,
