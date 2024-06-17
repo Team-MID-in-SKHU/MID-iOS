@@ -16,6 +16,8 @@ enum AuthTarget {
     case signUp(param: SignUpRequestBody)
     case login(param: LoginRequestBody)
     case duplicateCheck(studentNo: String)
+    case logOut
+    case delUser
 }
 
 extension AuthTarget: BaseTargetType {
@@ -38,15 +40,21 @@ extension AuthTarget: BaseTargetType {
             let newPath = URLConstant.duplicate
                 .replacingOccurrences(of: "{studentNo}", with: String(studentNo))
             return newPath
+        case .logOut:
+            return URLConstant.loginOut
+        case .delUser:
+            return URLConstant.userDelete
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signUp, .login:
+        case .signUp, .login, .logOut:
             return .post
         case .duplicateCheck:
             return .get
+        case .delUser:
+            return .delete
         }
     }
     
@@ -58,7 +66,7 @@ extension AuthTarget: BaseTargetType {
         case .login(let parameter):
             let parameters = try! parameter.asParameter()
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case .duplicateCheck:
+        case .duplicateCheck, .logOut, .delUser:
             return .requestPlain
         }
     }
@@ -107,7 +115,29 @@ struct AuthService: Networkable {
             .retryOnTokenExpired()
             .decode(decodeType: [DuplicateResponseBody].self)
     }
-
     
+    /**
+     로그아웃을 요청합니다
+     */
+    
+    static func postLogOut() -> Observable<[LogOutResponseBody]> {
+        return provider.rx.request(.logOut)
+            .asObservable()
+            .mapError()
+            .retryOnTokenExpired()
+            .decode(decodeType: [LogOutResponseBody].self)
+    }
+
+    /**
+     회원탈퇴를 요청합니다
+     */
+    
+    static func deleteUser() -> Observable<[UserDeleteResponseBody]> {
+        return provider.rx.request(.delUser)
+            .asObservable()
+            .mapError()
+            .retryOnTokenExpired()
+            .decode(decodeType: [UserDeleteResponseBody].self)
+    }
 }
 
