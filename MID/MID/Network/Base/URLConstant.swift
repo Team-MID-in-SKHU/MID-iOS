@@ -25,5 +25,14 @@ enum URLConstant {
     static let duplicate = "/api/v1/auth/duplicate-check?studentNo={studentNo}"
     static let loginOut =  "/api/v1/user/account/logout"
     static let userDelete = "/api/v1/user/account/delete"
+    
+    // MARK: - MyPage
+    
+    static let fcm = "/api/v1/fcm/push"
+    static let editUser = "/api/v1/user/details/edit"
+    static let detailsUser = "/api/v1/user/details"
+    static let interest = "/api/v1/interest/update"
+    static let setInterest = "/api/v1/interest/register"
+    static let usetInfo = "/api/v1/user/info"
 }
 
