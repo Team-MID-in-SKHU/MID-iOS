@@ -20,8 +20,10 @@ enum URLConstant {
     static let socialLogin = "/api/v1/auth"
     static let tokenRefresh = "/api/v1/auth/token"
     static let bearer = "Bearer "
-    static let memberWithdraw = "/api/v1/member/{memberId}"
     static let signUp = "/api/v1/auth/signUp"
     static let login = "/api/v1/auth/login"
     static let duplicate = "/api/v1/auth/duplicate-check?studentNo={studentNo}"
+    static let loginOut =  "/api/v1/user/account/logout"
+    static let userDelete = "/api/v1/user/account/delete"
 }
+
