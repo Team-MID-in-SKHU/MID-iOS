@@ -20,6 +20,8 @@ final class MonthTodoListViewCell: UITableViewCell {
     private let bottomBorder = UIView()
     let checkButton = UIButton()
     
+    var toggleInput: Bool = true
+    
     
     // MARK: - Initializer
     
@@ -27,6 +29,7 @@ final class MonthTodoListViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setStyles()
         setLayout()
+        setAddTarget()
     }
     
     // MARK: - UI Components Property
@@ -48,10 +51,8 @@ final class MonthTodoListViewCell: UITableViewCell {
         }
         
         checkButton.do {
-            $0.layer.borderWidth = 1
-            $0.layer.borderColor = UIColor.white000.cgColor
-            $0.layer.cornerRadius = 2
-            $0.isUserInteractionEnabled = true
+            $0.setImage(ImageLiterals.Todo.checkBox_off, for: .normal)
+//            $0.isUserInteractionEnabled = true
         }
         
         topBorder.do {
@@ -88,7 +89,6 @@ final class MonthTodoListViewCell: UITableViewCell {
         checkButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-SizeLiterals.Screen.screenWidth * 14 / 375)
             $0.centerY.equalToSuperview()
-            $0.width.height.equalTo(19)
         }
         
         bottomBorder.snp.makeConstraints {
@@ -99,7 +99,17 @@ final class MonthTodoListViewCell: UITableViewCell {
         
     }
     
+    func setAddTarget() {
+        checkButton.addTarget(self, action: #selector(setCheckButton), for: .touchUpInside)
+    }
+    
     // MARK: - @objc Methods
+    
+    @objc
+    func setCheckButton() {
+        self.toggleInput ? checkButton.setImage(ImageLiterals.Todo.checkBox_on, for: .normal) : checkButton.setImage(ImageLiterals.Todo.checkBox_off, for: .normal)
+        toggleInput.toggle()
+    }
     
 
     
