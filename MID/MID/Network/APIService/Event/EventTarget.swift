@@ -15,6 +15,8 @@ import RxSwift
 enum EventTarget {
     case searchEvent(param: EventSearchRequestBody)
     case eventDetail(id: String)
+    case eventDisplay
+    case randomEvent
 }
 
 extension EventTarget: BaseTargetType {
@@ -36,6 +38,10 @@ extension EventTarget: BaseTargetType {
             let newPath = URLConstant.eventDetail
                 .replacingOccurrences(of: "{id}", with: String(id))
             return newPath
+        case .eventDisplay:
+            return URLConstant.displayEvent
+        case .randomEvent:
+            return URLConstant.randomEvent
         }
     }
     
@@ -43,7 +49,7 @@ extension EventTarget: BaseTargetType {
         switch self {
         case .searchEvent:
             return .post
-        case .eventDetail:
+        case .eventDetail, .eventDisplay, .randomEvent:
             return .get
 
         }
@@ -58,8 +64,10 @@ extension EventTarget: BaseTargetType {
         case .eventDetail(let parameter):
             let parameters = try! parameter.asParameter()
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        
+        case .eventDisplay, .randomEvent:
+            return .requestPlain
         }
-    
     }
 }
 
@@ -82,7 +90,7 @@ struct EventService: Networkable {
     }
     
     /**
-     행사 % 이미지 상세보기를 요청합니다
+     행사 & 이미지 상세보기를 요청합니다
      - parameter id: String
      */
     
@@ -92,5 +100,29 @@ struct EventService: Networkable {
             .mapError()
             .retryOnTokenExpired()
             .decode(decodeType: EventDetailResponseBody.self)
+    }
+    
+    /**
+     신청중/마감임박 이벤트 조회
+     */
+    
+    static func getEventDisplay() -> Observable<DisplayEventResponseBody> {
+        return provider.rx.request(.eventDisplay)
+            .asObservable()
+            .mapError()
+            .retryOnTokenExpired()
+            .decode(decodeType: DisplayEventResponseBody.self)
+    }
+    
+    /**
+     랜덤 이벤트 조회
+     */
+    
+    static func getRandomEvent() -> Observable<RandomEventResponseBody> {
+        return provider.rx.request(.randomEvent)
+            .asObservable()
+            .mapError()
+            .retryOnTokenExpired()
+            .decode(decodeType: RandomEventResponseBody.self)
     }
 }
