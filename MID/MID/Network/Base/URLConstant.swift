@@ -47,9 +47,14 @@ enum URLConstant {
     static let displayEvent = "/api/v1/event/display"
     static let randomEvent = "/api/v1/display/random"
     
-    // MARK: -
+    // MARK: - SMS
     
     static let sendSMS = "/api/v1/sms-certification/send"
     static let confirmSMS = "/api/v1/sms-certification/confirm"
+    
+    // MARK: - Todo
+    
+    static let todayTodo = "/api/v1/todo/today"
+    static let monthTodo = "/api/v1/todo/month"
 }
 

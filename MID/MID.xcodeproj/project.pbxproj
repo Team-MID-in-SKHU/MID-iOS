@@ -23,6 +23,8 @@
 		253814432C20095000EAB401 /* EventTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253814422C20095000EAB401 /* EventTarget.swift */; };
 		253814472C200EFD00EAB401 /* smsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253814462C200EFD00EAB401 /* smsDTO.swift */; };
 		253814492C200FD800EAB401 /* SMSTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253814482C200FD800EAB401 /* SMSTarget.swift */; };
+		2538144D2C20119100EAB401 /* TodoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2538144C2C20119100EAB401 /* TodoDTO.swift */; };
+		2538144F2C20119900EAB401 /* TodoTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2538144E2C20119900EAB401 /* TodoTarget.swift */; };
 		253FD4152BE1D55D000912CB /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253FD4142BE1D55D000912CB /* UITextField+.swift */; };
 		2558EC532BBEDACE00F01FFA /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558EC522BBEDACE00F01FFA /* UIColor+.swift */; };
 		255CF16D2BBBA95400107219 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255CF16C2BBBA95400107219 /* AppDelegate.swift */; };
@@ -134,6 +136,8 @@
 		253814422C20095000EAB401 /* EventTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTarget.swift; sourceTree = "<group>"; };
 		253814462C200EFD00EAB401 /* smsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smsDTO.swift; sourceTree = "<group>"; };
 		253814482C200FD800EAB401 /* SMSTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSTarget.swift; sourceTree = "<group>"; };
+		2538144C2C20119100EAB401 /* TodoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDTO.swift; sourceTree = "<group>"; };
+		2538144E2C20119900EAB401 /* TodoTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTarget.swift; sourceTree = "<group>"; };
 		253FD4142BE1D55D000912CB /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		2558EC522BBEDACE00F01FFA /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		255CF1692BBBA95400107219 /* MID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MID.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -305,6 +309,22 @@
 			path = SMS;
 			sourceTree = "<group>";
 		};
+		2538144A2C20118500EAB401 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				2538144C2C20119100EAB401 /* TodoDTO.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
+		2538144B2C20118900EAB401 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				2538144E2C20119900EAB401 /* TodoTarget.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
 		255CF1602BBBA95400107219 = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +392,7 @@
 		255CF1A52BBBBD7900107219 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2538144A2C20118500EAB401 /* Todo */,
 				253814452C200EF500EAB401 /* SMS */,
 				2538143E2C2007E700EAB401 /* Event */,
 				253814382C20050900EAB401 /* Image */,
@@ -526,6 +547,7 @@
 		259254792C0E92B600EA0F06 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				2538144B2C20118900EAB401 /* Todo */,
 				253814442C200EEE00EAB401 /* SMS */,
 				253814412C20094200EAB401 /* Event */,
 				2538143B2C20058900EAB401 /* Image */,
@@ -911,6 +933,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				255CF1D72BBBC4B000107219 /* UITabBar+.swift in Sources */,
+				2538144D2C20119100EAB401 /* TodoDTO.swift in Sources */,
 				250301642BFF203B00E3ADFC /* DetailsUserInfoViewController.swift in Sources */,
 				252A1D1D2BF487A4006652B0 /* SignUpThirdPageView.swift in Sources */,
 				259254A22C0E9EC500EA0F06 /* Observable+.swift in Sources */,
@@ -934,6 +957,7 @@
 				255CF1DB2BBBC4CA00107219 /* Data.swift in Sources */,
 				25AF09712BF734EC0018E9D1 /* UIAlertView.swift in Sources */,
 				259ABFDE2BBFA62D00EBF9D6 /* NoticeImageView.swift in Sources */,
+				2538144F2C20119900EAB401 /* TodoTarget.swift in Sources */,
 				259254A02C0E9EA100EA0F06 /* NetworkManager.swift in Sources */,
 				253814432C20095000EAB401 /* EventTarget.swift in Sources */,
 				253814372C2001B300EAB401 /* RefreshTokenResponseDto.swift in Sources */,
