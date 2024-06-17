@@ -39,5 +39,10 @@ enum URLConstant {
     
     static let postImage = "/api/v1/s3/upload"
     static let delImage = "/ap1/v1/s3/delete"
+    
+    // MARK: - Event
+    
+    static let search = "/api/v1/event/search"
+    static let eventDetail = "/api/v1/event/detail?id={id}"
 }
 
