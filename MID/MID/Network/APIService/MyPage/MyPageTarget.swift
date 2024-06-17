@@ -55,7 +55,7 @@ extension MyPageTarget: BaseTargetType {
             return .post
         case .editUserDetails:
             return .patch
-        case .getUserDetails, usetInfo:
+        case .getUserDetails, .usetInfo:
             return .get
         case .putInterest:
             return .put
@@ -80,7 +80,7 @@ extension MyPageTarget: BaseTargetType {
             let parameters = try! parameter.asParameter()
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
             
-        case .getUserDetails, usetInfo:
+        case .getUserDetails, .usetInfo:
             return .requestPlain
         }
     
