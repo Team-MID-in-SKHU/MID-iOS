@@ -25,9 +25,21 @@ struct EditUserDetailRequeestBody: Codable {
 }
 
 struct UserInterestUpDateBody: Codable {
-    let interestCategoryList: [String]
+    var interestCategoryList: [String]
+}
+
+extension UserInterestUpDateBody {
+    static func userInterestDummy() -> UserInterestUpDateBody {
+        return UserInterestUpDateBody(interestCategoryList: [])
+    }
 }
 
 struct UserResponseBody : Codable {
     let studentNo, name, department, roleType: String
+}
+
+extension UserResponseBody {
+    static func userInfoDummy() -> UserResponseBody {
+        return UserResponseBody(studentNo: "", name: "", department: "", roleType: "")
+    }
 }

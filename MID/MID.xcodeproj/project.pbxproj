@@ -11,6 +11,7 @@
 		250301662BFF206100E3ADFC /* DetailsUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250301652BFF206100E3ADFC /* DetailsUserInfoView.swift */; };
 		250301682C001B7300E3ADFC /* UIInterestsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250301672C001B7300E3ADFC /* UIInterestsButton.swift */; };
 		251416682BFF1A800074A2E7 /* UIEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251416672BFF1A800074A2E7 /* UIEmptyView.swift */; };
+		25199F832C21EF740071003C /* AuthAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25199F822C21EF740071003C /* AuthAlertViewController.swift */; };
 		252A1D1B2BF48125006652B0 /* SignUpPageSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */; };
 		252A1D1D2BF487A4006652B0 /* SignUpThirdPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */; };
 		252A1D1F2BF48C2C006652B0 /* SignUpPageThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */; };
@@ -125,6 +126,7 @@
 		250301672C001B7300E3ADFC /* UIInterestsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIInterestsButton.swift; sourceTree = "<group>"; };
 		251416672BFF1A800074A2E7 /* UIEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEmptyView.swift; sourceTree = "<group>"; };
 		25199F812C21BE9D0071003C /* MID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MID.entitlements; sourceTree = "<group>"; };
+		25199F822C21EF740071003C /* AuthAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAlertViewController.swift; sourceTree = "<group>"; };
 		252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageSecondViewController.swift; sourceTree = "<group>"; };
 		252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdPageView.swift; sourceTree = "<group>"; };
 		252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageThirdViewController.swift; sourceTree = "<group>"; };
@@ -784,6 +786,7 @@
 				258F7AAC2BF2EB7100B0A2CF /* SignUpViewController.swift */,
 				252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */,
 				252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */,
+				25199F822C21EF740071003C /* AuthAlertViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -969,6 +972,7 @@
 				259ABFD02BBFA56F00EBF9D6 /* MonthTodoListTableViewCell.swift in Sources */,
 				25DB76182C09774800239504 /* DetailsNoticeViewController.swift in Sources */,
 				2592547D2C0E95C000EA0F06 /* NetworkLoggerPlugin.swift in Sources */,
+				25199F832C21EF740071003C /* AuthAlertViewController.swift in Sources */,
 				259ABFE12BBFA63500EBF9D6 /* NoticeViewModel.swift in Sources */,
 				255CF1D22BBBC3E900107219 /* TabBarController.swift in Sources */,
 				258F41382BC37C9E00B5B942 /* LookUpButtonView.swift in Sources */,
@@ -1168,7 +1172,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "http://api.midskhu.xyz";
+				BASE_URL = "https://api.midskhu.xyz";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X96X8FG389;
@@ -1196,7 +1200,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "http://api.midskhu.xyz";
+				BASE_URL = "https://api.midskhu.xyz";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X96X8FG389;

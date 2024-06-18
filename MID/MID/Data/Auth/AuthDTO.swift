@@ -9,8 +9,8 @@ import Foundation
 
 
 struct SignUpRequestBody: Codable {
-    let studentNo, password, name, department: String
-    let phoneNumber, fcmToken, roleType: String
+    var studentNo, password, name, department: String
+    var phoneNumber, fcmToken, roleType: String
 }
 
 
@@ -22,10 +22,21 @@ struct LoginRequestBody: Codable {
 }
 
 
-struct LoginResponseBody: Codable {}
+struct LoginResponseBody: Codable {
+    let accessToken: String
+    let refreshToken: String
+}
 
-struct DuplicateResponseBody: Codable {}
+struct DuplicateRequestBody: Codable {
+    var studentNo: String
+}
 
-struct LogOutResponseBody: Codable {}
+struct DuplicateResponseBody: Codable {
+    var studentNo: Bool
+}
+
+struct LogOutResponseBody: Codable {
+    let text: String
+}
 
 struct UserDeleteResponseBody: Codable {}
