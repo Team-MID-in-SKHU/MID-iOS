@@ -18,7 +18,7 @@ struct SignUpResponseBody: Codable {}
 
 
 struct LoginRequestBody: Codable {
-    let studentNo, password, fcmToken: String
+    var studentNo, password, fcmToken: String
 }
 
 

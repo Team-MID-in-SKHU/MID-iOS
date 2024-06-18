@@ -28,13 +28,18 @@ final class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Config.baseURL)
     }
     
     override func bindViewModel() {
         loginView.signInButton.rx.tap
             .bind { [weak self] in
                 guard let self else { return }
-                self.loginSuccess()
+                let username = self.loginView.idField.text ?? ""
+                let password = self.loginView.pwField.text ?? ""
+                print(username)
+                print(password)
+                self.viewModel.inputs.didTapLoginButton(id: username, pw: password)
             }
             .disposed(by: disposeBag)
         
@@ -43,6 +48,16 @@ final class LoginViewController: BaseViewController {
                 guard let self else { return }
                 self.pushToSignUpViewController()
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.loginBool
+            .bind(onNext: { [weak self] index in
+                if index == 1 {
+                    self?.loginSuccess()
+                } else if index == 0 {
+                    self?.loginFail()
+                }
+            })
             .disposed(by: disposeBag)
     }
     
@@ -79,6 +94,12 @@ final class LoginViewController: BaseViewController {
     private func pushToSignUpViewController() {
         let vc = SignUpViewController(viewModel: self.viewModel)
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func loginFail() {
+        let finishedAlertView = MyPageAlertViewController(alertType: .failLogin)
+        finishedAlertView.modalPresentationStyle = .overFullScreen
+        self.present(finishedAlertView, animated: false)
     }
 }
 

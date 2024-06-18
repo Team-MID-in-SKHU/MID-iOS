@@ -17,6 +17,7 @@ enum myPageAlertType {
     case signOut
     case logOut
     case select
+    case failLogin
 }
 
 final class MyPageAlertViewController: BaseViewController {
@@ -28,6 +29,7 @@ final class MyPageAlertViewController: BaseViewController {
     private let logoutAlertView = UIAlertView(frame: .zero, title: "로그아웃 하시겠습니까?", subTitle: "", alertType: .oneLine)
     private let signoutAlertView = UIAlertView(frame: .zero, title: "탈퇴하시겠습니까?", subTitle: "", alertType: .oneLine)
     private let selectInterestsAlertView = UIAlertView(frame: .zero, title: "공개 일정", subTitle: "개인 일정", alertType: .selectInterests)
+    private let failLoginAlertView = UIAlertView(frame: .zero, title: "로그인 실패", subTitle: "아이디 혹은 비밀번호를 다시 입력해주세요", alertType: .failLogin)
     
     // MARK: - Properties
     
@@ -83,6 +85,20 @@ final class MyPageAlertViewController: BaseViewController {
                 self.didTapCheckButton()
             }
             .disposed(by: disposeBag)
+                
+        failLoginAlertView.checkButton.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                self.logoutSuccess()
+            }
+            .disposed(by: disposeBag)
+        
+        failLoginAlertView.cancelButton.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                self.didTapCheckButton()
+            }
+            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -119,6 +135,14 @@ final class MyPageAlertViewController: BaseViewController {
                 $0.centerX.centerY.equalToSuperview()
                 $0.width.equalTo(SizeLiterals.Screen.screenWidth * 300 / 375)
                 $0.height.equalTo(SizeLiterals.Screen.screenHeight * 330 / 812)
+            }
+        case .failLogin:
+            view.addSubviews(failLoginAlertView)
+            
+            failLoginAlertView.snp.makeConstraints {
+                $0.centerX.centerY.equalToSuperview()
+                $0.width.equalTo(SizeLiterals.Screen.screenWidth * 300 / 375)
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 160 / 812)
             }
         }
         
