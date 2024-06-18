@@ -26,7 +26,14 @@ final class DetailsUserInfoViewController: BaseViewController {
     // MARK: - Properties
     
     
+    
     // MARK: - Initializer
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setData()
+    }
+
 
     init(viewModel: MyPageViewModel){
         self.viewModel = viewModel
@@ -57,8 +64,26 @@ final class DetailsUserInfoViewController: BaseViewController {
         }
     }
     
+    private func setData() {
+        let userName = UserDefaults.standard.string(forKey: StringLiterals.Auth.userName) ?? ""
+        let userDepartment = UserDefaults.standard.string(forKey: StringLiterals.Auth.userDepartment) ?? ""
+        detailsUserInfoView.userNameTextField.do {
+            $0.setPlaceholder(
+                placeeholder: userName,
+                color: .white000
+            )
+        }
+        
+        detailsUserInfoView.userDepartmentTextField.do {
+            $0.setPlaceholder(
+                placeeholder: userDepartment,
+                color: .white000
+            )
+        }
+    }
+    
     private func didTapSignOut() {
-        let finishedAlertView = MyPageAlertViewController(alertType: .signOut)
+        let finishedAlertView = MyPageAlertViewController(alertType: .signOut, viewModel: self.viewModel)
         finishedAlertView.modalPresentationStyle = .overFullScreen
         self.present(finishedAlertView, animated: false)
     }

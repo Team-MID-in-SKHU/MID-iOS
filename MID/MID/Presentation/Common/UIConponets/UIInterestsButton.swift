@@ -19,25 +19,24 @@ final class UIInterestsButton: BaseView {
     // MARK: - Properties
     
     var buttonStatus: Bool = false
-
     
     // MARK: - Initializer
     
     init(frame: CGRect, buttonTitle: String) {
         self.buttonTitleLabel.text = buttonTitle
         super.init(frame: frame)
+        setupGesture()
     }
     
 
     // MARK: - UI Components Property
     
     override func setStyles() {
-        addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(tapButton)))
         backgroundColor = .white000
         layer.cornerRadius = 15
         
         buttonTitleLabel.do {
-            $0.textColor = .diamon000
+            $0.textColor = .diamon700
             $0.font = .fontGuide(.body2_bold)
         }
     }
@@ -45,18 +44,27 @@ final class UIInterestsButton: BaseView {
     // MARK: - Layout Helper
     
     override func setLayout() {
+        addSubviews(buttonTitleLabel)
         
+        buttonTitleLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
     }
     
     // MARK: - Methods
+    
+    private func setupGesture() {
+         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapButton))
+         self.addGestureRecognizer(tapGesture)
+     }
           
     // MARK: - @objc Methods
     
     @objc
     func tapButton() {
         buttonStatus.toggle()
-        buttonTitleLabel.textColor = buttonStatus ? .white000 : .diamon000
-        backgroundColor = buttonStatus ? .diamon000 : .white000
+        buttonTitleLabel.textColor = buttonStatus ? .white000 : .diamon700
+        backgroundColor = buttonStatus ? .diamon700 : .white000
     }
     
     required init?(coder: NSCoder) {

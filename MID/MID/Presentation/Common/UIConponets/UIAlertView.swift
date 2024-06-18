@@ -31,12 +31,12 @@ final class UIAlertView: BaseView {
     let cancelButton = UIButton()
     let checkButton = UIButton()
     
-    private let academicButton = UIInterestsButton(frame: .zero, buttonTitle: "학사일정")
-    private let studentCouncilButton = UIInterestsButton(frame: .zero, buttonTitle: "학생회")
-    private let clubButton = UIInterestsButton(frame: .zero, buttonTitle: "동아리")
-    private let smallGatheringButton = UIInterestsButton(frame: .zero, buttonTitle: "소모임")
-    private let semiClubButton = UIInterestsButton(frame: .zero, buttonTitle: "준동아리")
-    private let outsideClubButton = UIInterestsButton(frame: .zero, buttonTitle: "대외동아리")
+    let academicButton = UIInterestsButton(frame: .zero, buttonTitle: "학사일정")
+    let studentCouncilButton = UIInterestsButton(frame: .zero, buttonTitle: "학생회")
+    let clubButton = UIInterestsButton(frame: .zero, buttonTitle: "동아리")
+    let smallGatheringButton = UIInterestsButton(frame: .zero, buttonTitle: "소모임")
+    let semiClubButton = UIInterestsButton(frame: .zero, buttonTitle: "준동아리")
+    let outsideClubButton = UIInterestsButton(frame: .zero, buttonTitle: "대외동아리")
     
     
     //    동아리 소모임 준동아리 대외동아리
@@ -214,7 +214,7 @@ final class UIAlertView: BaseView {
                 $0.horizontalEdges.equalToSuperview()
                 $0.height.equalTo(1)
             }
-
+            
             
             checkButton.snp.makeConstraints {
                 $0.bottom.equalToSuperview()

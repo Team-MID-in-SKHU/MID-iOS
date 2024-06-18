@@ -16,9 +16,9 @@ final class DetailsUserInfoView: BaseView {
     
     private var userImage = UIImageView()
     private var userName = UILabel()
-    private let userNameTextField = UnderLineTextField()
+    let userNameTextField = UnderLineTextField()
     private let userDepartment = UILabel()
-    private let userDepartmentTextField = UnderLineTextField()
+    let userDepartmentTextField = UnderLineTextField()
     let withdrawalButton = UIButton()
 
     // MARK: - Properties
