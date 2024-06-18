@@ -28,7 +28,6 @@ final class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Config.baseURL)
     }
     
     override func bindViewModel() {
@@ -97,7 +96,7 @@ final class LoginViewController: BaseViewController {
     }
     
     private func loginFail() {
-        let finishedAlertView = MyPageAlertViewController(alertType: .failLogin)
+        let finishedAlertView = AuthAlertViewController(alertType: .failLogin, viewModel: self.viewModel)
         finishedAlertView.modalPresentationStyle = .overFullScreen
         self.present(finishedAlertView, animated: false)
     }

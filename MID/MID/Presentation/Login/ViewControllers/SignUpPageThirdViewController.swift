@@ -41,8 +41,23 @@ final class SignUpPageThirdViewController: BaseViewController {
         signUpThirdPage.nextButton.rx.tap
             .bind { [weak self] in
                 guard let self else { return }
-                self.signUpSuccpuess()
+                let userName = self.signUpThirdPage.nameTextField.text ?? ""
+                let userPhoneNumber = self.signUpThirdPage.phoneNumberTextField.text ?? ""
+                let userRole = self.signUpThirdPage.studentRoleTextField.text == "일반학생" ? "STUDENT" : "ADMIN"
+                let userDepartment = self.signUpThirdPage.studentDepartmentTextField.text ?? ""
+                
+                self.viewModel.inputs.didTapSignUpThirdPage(name: userName, department: userDepartment, phoneNumber: userPhoneNumber, fcmToken: "", roleType: userRole)
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.signUpBool
+            .bind(onNext: { [weak self] index in
+                if index == 1 {
+                    self?.signUpSuccpuess()
+                } else if index == 0 {
+                    self?.signUpFail()
+                }
+            })
             .disposed(by: disposeBag)
 
     }
@@ -75,6 +90,12 @@ final class SignUpPageThirdViewController: BaseViewController {
             window.rootViewController = rootVC
             window.makeKeyAndVisible()
         }
+    }
+    
+    private func signUpFail() {
+        let finishedAlertView = AuthAlertViewController(alertType: .failSignUp, viewModel: self.viewModel)
+        finishedAlertView.modalPresentationStyle = .overFullScreen
+        self.present(finishedAlertView, animated: false)
     }
     
     required init?(coder: NSCoder) {

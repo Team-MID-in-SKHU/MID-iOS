@@ -22,7 +22,6 @@ final class SignUpViewController: BaseViewController {
     // MARK: - UI Components
     
     private let signUpFirstPage = SignUpFirstPageView()
-    private let signUpSecondPage = SignUpSecondPageView()
     
     // MARK: - Properties
     
@@ -45,8 +44,19 @@ final class SignUpViewController: BaseViewController {
         signUpFirstPage.nextButton.rx.tap
             .bind { [weak self] in
                 guard let self else { return }
-                self.pushToSecondPage()
+                let userNo = self.signUpFirstPage.idTextField.text ?? ""
+                self.viewModel.inputs.didTapSignUpFirstPage(studentNo: userNo)
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.duplicateBool
+            .bind(onNext: { [weak self] index in
+                if index == 1 {
+                    self?.pushToSecondPage()
+                } else if index == 0 {
+                    self?.duplicateCheckFail()
+                }
+            })
             .disposed(by: disposeBag)
 
     }
@@ -69,9 +79,15 @@ final class SignUpViewController: BaseViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    private func duplicateCheckFail() {
+        let finishedAlertView = AuthAlertViewController(alertType: .failDuplicate, viewModel: self.viewModel)
+        finishedAlertView.modalPresentationStyle = .overFullScreen
+        self.present(finishedAlertView, animated: false)
+    }
+    
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 
