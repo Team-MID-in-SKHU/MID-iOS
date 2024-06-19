@@ -81,16 +81,16 @@ struct EventService: Networkable {
      - parameter file: imageRequestBody
      */
     
-    static func getSearchEvent(title: EventSearchRequestBody) -> Observable<EventSearchResponseBody> {
+    static func getSearchEvent(title: EventSearchRequestBody) -> Observable<NoticeListResponseBody> {
         return provider.rx.request(.searchEvent(param: title))
             .asObservable()
             .mapError()
             .retryOnTokenExpired()
-            .decode(decodeType: EventSearchResponseBody.self)
+            .decode(decodeType: NoticeListResponseBody.self)
     }
     
     /**
-     행사 & 이미지 상세보기를 요청합니다
+     이미지 삭제를 요청합니다
      - parameter id: String
      */
     
