@@ -44,11 +44,11 @@ final class MonthTodoListViewCell: UITableViewCell {
             $0.font = .fontGuide(.detail2_bold)
         }
         
-        subTitleLabel.do {
-            $0.text = "테스트 서브 타이틀"
-            $0.textColor = .gray200
-            $0.font = .fontGuide(.detail3_reg)
-        }
+//        subTitleLabel.do {
+//            $0.text = "테스트 서브 타이틀"
+//            $0.textColor = .gray200
+//            $0.font = .fontGuide(.detail3_reg)
+//        }
         
         checkButton.do {
             $0.setImage(ImageLiterals.Todo.checkBox_off, for: .normal)
@@ -68,7 +68,7 @@ final class MonthTodoListViewCell: UITableViewCell {
     // MARK: - Layout Helper
     
     private func setLayout() {
-        contentView.addSubviews(titleLabel, subTitleLabel, checkButton, topBorder, bottomBorder)
+        contentView.addSubviews(titleLabel, checkButton, topBorder, bottomBorder)
         
         topBorder.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -77,14 +77,15 @@ final class MonthTodoListViewCell: UITableViewCell {
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 21 / 812)
+            $0.centerY.equalToSuperview()
+//            $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 21 / 812)
             $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 12 / 375)
         }
         
-        subTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
-            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 12 / 375)
-        }
+//        subTitleLabel.snp.makeConstraints {
+//            $0.top.equalTo(titleLabel.snp.bottom)
+//            $0.leading.equalToSuperview().offset(SizeLiterals.Screen.screenWidth * 12 / 375)
+//        }
         
         checkButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-SizeLiterals.Screen.screenWidth * 14 / 375)
@@ -121,6 +122,7 @@ final class MonthTodoListViewCell: UITableViewCell {
 extension MonthTodoListViewCell {
     func configureWith(title: String) {
         titleLabel.text = title
+//        subTitleLabel.text = subTitle
     }
 }
 

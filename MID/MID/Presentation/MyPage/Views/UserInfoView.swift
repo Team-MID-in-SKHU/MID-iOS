@@ -15,7 +15,8 @@ final class UserInfoView: BaseView {
     // MARK: - UI Components
     
     private var userImage = UIImageView()
-    private var userName = UILabel()
+    var userNameLabel = UILabel()
+    
     
     
     // MARK: - Initializer
@@ -31,8 +32,7 @@ final class UserInfoView: BaseView {
             $0.image = ImageLiterals.MyPage.userImage
         }
         
-        userName.do {
-            $0.text = "MID님의 마이페이지"
+        userNameLabel.do {
             $0.font = .fontGuide(.head1)
             $0.textColor = .white000
         }
@@ -41,7 +41,7 @@ final class UserInfoView: BaseView {
     // MARK: - Layout Helper
     
     override func setLayout() {
-        addSubviews(userImage, userName)
+        addSubviews(userImage, userNameLabel)
         
         userImage.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -50,7 +50,7 @@ final class UserInfoView: BaseView {
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 0.264)
         }
         
-        userName.snp.makeConstraints {
+        userNameLabel.snp.makeConstraints {
             $0.top.equalTo(userImage.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 0.0369)
             $0.centerX.equalToSuperview()
         }

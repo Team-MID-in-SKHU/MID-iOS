@@ -15,7 +15,7 @@ import RxSwift
 enum AuthTarget {
     case signUp(param: SignUpRequestBody)
     case login(param: LoginRequestBody)
-    case duplicateCheck(studentNo: String)
+    case duplicateCheck(param: DuplicateRequestBody)
     case logOut
     case delUser
     case tokenRefresh
@@ -24,7 +24,12 @@ enum AuthTarget {
 extension AuthTarget: BaseTargetType {
     
     var headers: [String : String]? {
-        APIConstants.headerWithAuthorization
+        switch self {
+        case .signUp, .login, .duplicateCheck:
+            APIConstants.headerWithOutToken
+        case .logOut, .delUser, .tokenRefresh:
+            APIConstants.headerWithAuthorization
+        }
     }
     
     var authorizationType: AuthorizationType? {
@@ -37,10 +42,8 @@ extension AuthTarget: BaseTargetType {
             return URLConstant.signUp
         case .login:
             return URLConstant.login
-        case .duplicateCheck(let studentNo):
-            let newPath = URLConstant.duplicate
-                .replacingOccurrences(of: "{studentNo}", with: String(studentNo))
-            return newPath
+        case .duplicateCheck:
+            return URLConstant.duplicate
         case .logOut:
             return URLConstant.loginOut
         case .delUser:
@@ -55,7 +58,9 @@ extension AuthTarget: BaseTargetType {
         switch self {
         case .signUp, .login, .logOut:
             return .post
-        case .duplicateCheck, .tokenRefresh:
+        case .duplicateCheck:
+            return .post
+        case .tokenRefresh:
             return .get
         case .delUser:
             return .delete
@@ -70,7 +75,10 @@ extension AuthTarget: BaseTargetType {
         case .login(let parameter):
             let parameters = try! parameter.asParameter()
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case .duplicateCheck, .logOut, .delUser, .tokenRefresh:
+        case .duplicateCheck(let parameter):
+            let parameters = try! parameter.asParameter()
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .logOut, .delUser, .tokenRefresh:
             return .requestPlain
         }
     }
@@ -112,36 +120,37 @@ struct AuthService: Networkable {
      - parameter studentNo: string
      */
     
-    static func getDuplicateCheck(with studentNo: String) -> Observable<[DuplicateResponseBody]> {
-        return provider.rx.request(.duplicateCheck(studentNo: studentNo))
+    static func postDuplicateCheck(studentNo: DuplicateRequestBody) -> Observable<DuplicateResponseBody> {
+        return provider.rx.request(.duplicateCheck(param: studentNo))
             .asObservable()
             .mapError()
             .retryOnTokenExpired()
-            .decode(decodeType: [DuplicateResponseBody].self)
+            .decode(decodeType: DuplicateResponseBody.self)
     }
+    
     
     /**
      로그아웃을 요청합니다
      */
     
-    static func postLogOut() -> Observable<[LogOutResponseBody]> {
+    static func postLogOut() -> Observable<LogOutResponseBody> {
         return provider.rx.request(.logOut)
             .asObservable()
             .mapError()
             .retryOnTokenExpired()
-            .decode(decodeType: [LogOutResponseBody].self)
+            .decode(decodeType: LogOutResponseBody.self)
     }
 
     /**
      회원탈퇴를 요청합니다
      */
     
-    static func deleteUser() -> Observable<[UserDeleteResponseBody]> {
+    static func deleteUser() -> Observable<UserDeleteResponseBody> {
         return provider.rx.request(.delUser)
             .asObservable()
             .mapError()
             .retryOnTokenExpired()
-            .decode(decodeType: [UserDeleteResponseBody].self)
+            .decode(decodeType: UserDeleteResponseBody.self)
     }
     
     

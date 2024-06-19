@@ -63,8 +63,7 @@ struct TodoService: Networkable {
     
     
     /**
-     사용자에게 sms를 통해서 인증번호를 발송합니다
-     - parameter param: CertificationRequestBody
+     오늘의 할 일을 조회합니다
      */
     
     static func getTodo() -> Observable<TodayResponses> {
@@ -76,8 +75,8 @@ struct TodoService: Networkable {
     }
     
     /**
-     사용자에게 받은 sms번호를 검증합니다.
-     - parameter param: ConfirmSMSRequestBody
+     이 달의 할 일을 조회합니다..
+     - parameter param: MonthTodayRequestBody
      */
     
     static func getMonthTodo(param: MonthTodayRequestBody) -> Observable<TodayResponses> {

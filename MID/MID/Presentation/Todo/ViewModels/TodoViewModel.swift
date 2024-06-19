@@ -29,14 +29,16 @@ final class TodoViewModel: TodoViewModelInput, TodoViewModelOutput, TodoViewMode
     var todayTodoList: BehaviorRelay<[String]> = BehaviorRelay(value: [])
     var laterTodoList: BehaviorRelay<[String]> = BehaviorRelay(value: [])
 
+    private let disposeBag = DisposeBag()
+
     
     private let testTodoList: [String] = [
-        "IT&미디어콘텐츠 경진대회 참가 신청", "IT융합자율학부 야식사업"
+        "소프트웨어캡스톤디자인 최종제출", "2024-1학기 기말고사 기간"
     ]
     
     
     private let testLaterTodoList: [String] = [
-        "IT&미디어콘텐츠 경진대회 참가 신청", "IT융합자율학부 야식사업"
+        "2024-1학기 종강일 D-2", "2024-여름 계절학기 수업기간 D-5"
     ]
     
     
@@ -45,10 +47,25 @@ final class TodoViewModel: TodoViewModelInput, TodoViewModelOutput, TodoViewMode
     
     init() {
         todayTodoList.accept(testTodoList)
-//        laterTodoList.accept(testLaterTodoList)
+        laterTodoList.accept(testLaterTodoList)
     }
     
     func lookUpButtonTap() {
         print("lookUpButtonTap")
     }
 }
+
+extension TodoViewModel {
+    func getTodo() {
+        TodoService.getTodo()
+            .subscribe(onNext: { [weak self] data in
+                guard let self else { return }
+                print("오늘의 할 일을 조회합니다.")
+            }, onError: { [weak self] error in
+                guard let self else { return }
+                print(error)
+            })
+            .disposed(by: disposeBag)
+    }
+}
+

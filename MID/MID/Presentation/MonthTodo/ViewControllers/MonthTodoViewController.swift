@@ -144,7 +144,8 @@ final class MonthTodoViewController: BaseViewController {
         }
         
         todoListLabel.do {
-            $0.text = "00월 00일 0요일 일정"
+            let date = self.dateFormatter.string(from: self.calendarDate)
+            $0.text = "2024년 06월 \(todayDay)일 일정"
             $0.textColor = .white000
             $0.font = .fontGuide(.body1_bold)
         }
@@ -371,7 +372,11 @@ extension MonthTodoViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedDay = self.days[indexPath.item]
+        let date = self.dateFormatter.string(from: self.calendarDate)
         print("Selected day: \(selectedDay)")
+        print(todayDay)
         // 이 것을 활용하여 아래 View가 reload 되어야 함.
+        todoListLabel.text = "\(date) \(selectedDay)일 일정"
+        viewModel.inputs.didTapDay(day: selectedDay)
     }
 }

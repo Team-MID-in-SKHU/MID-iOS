@@ -8,7 +8,6 @@
 import Foundation
 import Moya
 
-/// Logs network activity (outgoing requests and incoming responses).
 public final class NetworkLoggerPlugin: PluginType {
     
     fileprivate let loggerId = "Moya_Logger"
@@ -21,11 +20,9 @@ public final class NetworkLoggerPlugin: PluginType {
     fileprivate let requestDataFormatter: ((Data) -> (String))?
     fileprivate let responseDataFormatter: ((Data) -> (Data))?
     
-    /// A Boolean value determing whether response body data should be logged.
     public let isVerbose: Bool
     public let cURL: Bool
     
-    /// Initializes a NetworkLoggerPlugin.
     public init(verbose: Bool = true, cURL: Bool = false, output: ((_ separator: String, _ terminator: String, _ items: Any...) -> Void)? = nil, requestDataFormatter: ((Data) -> (String))? = nil, responseDataFormatter: ((Data) -> (Data))? = nil) {
         self.cURL = cURL
         self.isVerbose = verbose

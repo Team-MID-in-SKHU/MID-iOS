@@ -59,14 +59,6 @@ final class SignUpFirstPageView: BaseView {
             $0.textColor = .gray100
             $0.font = .fontGuide(.detail2_bold)
         }
-        
-//        idCheckButton.do {
-//            $0.setTitle("중복 확인", for: .normal)
-//            $0.titleLabel?.font = .fontGuide(.detail2_bold)
-//            $0.titleLabel?.textColor = .white000
-//            $0.backgroundColor = .gray500
-//            $0.layer.cornerRadius = 8
-//        }
 
         idTextField.do {
             $0.setPlaceholder(

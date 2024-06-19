@@ -43,9 +43,12 @@ final class SignUpPageSecondViewController: BaseViewController {
         signUpSecondPage.nextButton.rx.tap
             .bind { [weak self] in
                 guard let self else { return }
+                let userPw = self.signUpSecondPage.pwTextField.text ?? ""
+                self.viewModel.inputs.didTapSignUpSecondPage(password: userPw)
                 self.pushThirdPage()
             }
             .disposed(by: disposeBag)
+        
         
     }
     

@@ -28,9 +28,7 @@ final class MyPageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.outputs.myPageMenuList.subscribe(onNext: { menuList in
-            print(menuList)
-        }).disposed(by: disposeBag)
+        setData()
     }
     
     
@@ -48,16 +46,13 @@ final class MyPageViewController: BaseViewController {
                     self.pushToDetailsUserInfoViewController()
                 case 1:
                     // 관심사 수정
-                    input.interestModifyDidTap()
                     self.didTapInterest()
                 case 2:
                     // 푸쉬알림 설정
                     input.pushAlarmDidTap()
                 case 3:
                     // 로그아웃
-                    input.logOutDidTap()
                     self.didTapLogOut()
-                    //  self.logoutSuccess()
                 default:
                     break
                 }
@@ -71,6 +66,11 @@ final class MyPageViewController: BaseViewController {
                     cell.setLogOutStyle()
                 }
             }
+            .disposed(by: disposeBag)
+        viewModel.outputs.userInfo
+            .bind(onNext: { [weak self] data in
+            
+            })
             .disposed(by: disposeBag)
     }
     
@@ -108,6 +108,11 @@ final class MyPageViewController: BaseViewController {
         myPageListTableView.register(MyPageListTableViewCell.self, forCellReuseIdentifier: MyPageListTableViewCell.className)
     }
     
+    private func setData() {
+        let userName = UserDefaults.standard.string(forKey: StringLiterals.Auth.userName) ?? ""
+        myPageProfileView.userNameLabel.text = "\(userName)님의 마이페이지"
+    }
+    
     private func logoutSuccess() {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let sceneDelegate = windowScene.delegate as? SceneDelegate,
@@ -121,13 +126,13 @@ final class MyPageViewController: BaseViewController {
     }
     
     private func didTapLogOut() {
-        let finishedAlertView = MyPageAlertViewController(alertType: .logOut)
+        let finishedAlertView = MyPageAlertViewController(alertType: .logOut, viewModel: self.viewModel)
         finishedAlertView.modalPresentationStyle = .overFullScreen
         self.present(finishedAlertView, animated: false)
     }
     
     private func didTapInterest() {
-        let finishedAlertView = MyPageAlertViewController(alertType: .select)
+        let finishedAlertView = MyPageAlertViewController(alertType: .select, viewModel: self.viewModel)
         finishedAlertView.modalPresentationStyle = .overFullScreen
         self.present(finishedAlertView, animated: false)
     }

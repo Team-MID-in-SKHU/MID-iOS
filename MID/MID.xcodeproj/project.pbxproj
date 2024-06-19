@@ -11,9 +11,11 @@
 		250301662BFF206100E3ADFC /* DetailsUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250301652BFF206100E3ADFC /* DetailsUserInfoView.swift */; };
 		250301682C001B7300E3ADFC /* UIInterestsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250301672C001B7300E3ADFC /* UIInterestsButton.swift */; };
 		251416682BFF1A800074A2E7 /* UIEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251416672BFF1A800074A2E7 /* UIEmptyView.swift */; };
+		25199F832C21EF740071003C /* AuthAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25199F822C21EF740071003C /* AuthAlertViewController.swift */; };
 		252A1D1B2BF48125006652B0 /* SignUpPageSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */; };
 		252A1D1D2BF487A4006652B0 /* SignUpThirdPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */; };
 		252A1D1F2BF48C2C006652B0 /* SignUpPageThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */; };
+		252D19D62C2247F400CFA367 /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D19D52C2247F400CFA367 /* NoticeTableViewCell.swift */; };
 		253814322C1FD38600EAB401 /* MyPageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253814312C1FD38600EAB401 /* MyPageDTO.swift */; };
 		253814352C1FD53200EAB401 /* MyPageTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253814342C1FD53200EAB401 /* MyPageTarget.swift */; };
 		253814372C2001B300EAB401 /* RefreshTokenResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253814362C2001B300EAB401 /* RefreshTokenResponseDto.swift */; };
@@ -124,9 +126,12 @@
 		250301652BFF206100E3ADFC /* DetailsUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUserInfoView.swift; sourceTree = "<group>"; };
 		250301672C001B7300E3ADFC /* UIInterestsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIInterestsButton.swift; sourceTree = "<group>"; };
 		251416672BFF1A800074A2E7 /* UIEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEmptyView.swift; sourceTree = "<group>"; };
+		25199F812C21BE9D0071003C /* MID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MID.entitlements; sourceTree = "<group>"; };
+		25199F822C21EF740071003C /* AuthAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAlertViewController.swift; sourceTree = "<group>"; };
 		252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageSecondViewController.swift; sourceTree = "<group>"; };
 		252A1D1C2BF487A4006652B0 /* SignUpThirdPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThirdPageView.swift; sourceTree = "<group>"; };
 		252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageThirdViewController.swift; sourceTree = "<group>"; };
+		252D19D52C2247F400CFA367 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoticeTableViewCell.swift; path = MID/Presentation/Login/ViewControllers/NoticeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		253814312C1FD38600EAB401 /* MyPageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDTO.swift; sourceTree = "<group>"; };
 		253814342C1FD53200EAB401 /* MyPageTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTarget.swift; sourceTree = "<group>"; };
 		253814362C2001B300EAB401 /* RefreshTokenResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponseDto.swift; sourceTree = "<group>"; };
@@ -245,6 +250,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		252D19D42C2247CF00CFA367 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				252D19D52C2247F400CFA367 /* NoticeTableViewCell.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		253814302C1FD37700EAB401 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +422,7 @@
 			children = (
 				255CF16C2BBBA95400107219 /* AppDelegate.swift */,
 				255CF16E2BBBA95400107219 /* SceneDelegate.swift */,
+				25199F812C21BE9D0071003C /* MID.entitlements */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -759,6 +773,7 @@
 		259ABFD92BBFA61700EBF9D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				252D19D42C2247CF00CFA367 /* New Group */,
 				259ABFDD2BBFA62D00EBF9D6 /* NoticeImageView.swift */,
 				257189892BF7043300D03C95 /* NoticeSearchBarView.swift */,
 				2571898B2BF70E3F00D03C95 /* MoreButtonView.swift */,
@@ -782,6 +797,7 @@
 				258F7AAC2BF2EB7100B0A2CF /* SignUpViewController.swift */,
 				252A1D1A2BF48125006652B0 /* SignUpPageSecondViewController.swift */,
 				252A1D1E2BF48C2C006652B0 /* SignUpPageThirdViewController.swift */,
+				25199F822C21EF740071003C /* AuthAlertViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -967,6 +983,7 @@
 				259ABFD02BBFA56F00EBF9D6 /* MonthTodoListTableViewCell.swift in Sources */,
 				25DB76182C09774800239504 /* DetailsNoticeViewController.swift in Sources */,
 				2592547D2C0E95C000EA0F06 /* NetworkLoggerPlugin.swift in Sources */,
+				25199F832C21EF740071003C /* AuthAlertViewController.swift in Sources */,
 				259ABFE12BBFA63500EBF9D6 /* NoticeViewModel.swift in Sources */,
 				255CF1D22BBBC3E900107219 /* TabBarController.swift in Sources */,
 				258F41382BC37C9E00B5B942 /* LookUpButtonView.swift in Sources */,
@@ -1014,6 +1031,7 @@
 				253814352C1FD53200EAB401 /* MyPageTarget.swift in Sources */,
 				259254852C0E968F00EA0F06 /* BaseTargetType.swift in Sources */,
 				258F7AB52BF33A1900B0A2CF /* UIPercentBar.swift in Sources */,
+				252D19D62C2247F400CFA367 /* NoticeTableViewCell.swift in Sources */,
 				2538143A2C20052900EAB401 /* ImageDTO.swift in Sources */,
 				253814322C1FD38600EAB401 /* MyPageDTO.swift in Sources */,
 				25CB88612BDE8611008E68EC /* MonthTodoListViewCell.swift in Sources */,
@@ -1166,8 +1184,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "http://api-server";
-				CODE_SIGN_STYLE = Automatic;
+				BASE_URL = "https://api.midskhu.xyz";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X96X8FG389;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1194,8 +1212,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "http://api-server";
-				CODE_SIGN_STYLE = Automatic;
+				BASE_URL = "https://api.midskhu.xyz";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X96X8FG389;
 				GENERATE_INFOPLIST_FILE = YES;

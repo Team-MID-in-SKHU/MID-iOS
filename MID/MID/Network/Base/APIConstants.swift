@@ -21,8 +21,8 @@ enum APIConstants {
     static let auth: String = "x-auth-token"
     static let applicationJSON = "application/json"
     static var deviceToken: String = ""
-//    static var jwtToken: String = KeychainHelper.loadString(key: I18N.Auth.jwtToken) ?? ""
-//    static var refreshToken: String = KeychainHelper.loadString(key: I18N.Auth.refreshToken) ?? ""
+    static var jwtToken: String = ""
+    static var refreshToken: String = ""
     
     //MARK: - Header
     
@@ -42,15 +42,15 @@ enum APIConstants {
     static var headerWithAuthorization: [String: String] {
         [
             NetworkHeaderKey.contentType.rawValue: APIConstants.applicationJSON,
-//            NetworkHeaderKey.authorization.rawValue: URLConstant.bearer + APIConstants.jwtToken
+            NetworkHeaderKey.authorization.rawValue: URLConstant.bearer + APIConstants.jwtToken
         ]
     }
     
     static var headerWithRefresh: [String: String] {
         [
             NetworkHeaderKey.contentType.rawValue: APIConstants.applicationJSON,
-//            NetworkHeaderKey.authorization.rawValue: URLConstant.bearer + APIConstants.jwtToken,
-//            NetworkHeaderKey.refreshToken.rawValue: URLConstant.bearer + APIConstants.refreshToken
+            NetworkHeaderKey.authorization.rawValue: URLConstant.bearer + APIConstants.jwtToken,
+            NetworkHeaderKey.refreshToken.rawValue: URLConstant.bearer + APIConstants.refreshToken
         ]
     }
 }

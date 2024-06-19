@@ -16,6 +16,7 @@ enum alertViewType {
     case oneLine
     case twoLine
     case selectInterests
+    case failLogin
 }
 
 final class UIAlertView: BaseView {
@@ -30,12 +31,12 @@ final class UIAlertView: BaseView {
     let cancelButton = UIButton()
     let checkButton = UIButton()
     
-    private let academicButton = UIInterestsButton(frame: .zero, buttonTitle: "학사일정")
-    private let studentCouncilButton = UIInterestsButton(frame: .zero, buttonTitle: "학생회")
-    private let clubButton = UIInterestsButton(frame: .zero, buttonTitle: "동아리")
-    private let smallGatheringButton = UIInterestsButton(frame: .zero, buttonTitle: "소모임")
-    private let semiClubButton = UIInterestsButton(frame: .zero, buttonTitle: "준동아리")
-    private let outsideClubButton = UIInterestsButton(frame: .zero, buttonTitle: "대외동아리")
+    let academicButton = UIInterestsButton(frame: .zero, buttonTitle: "학사일정")
+    let studentCouncilButton = UIInterestsButton(frame: .zero, buttonTitle: "학생회")
+    let clubButton = UIInterestsButton(frame: .zero, buttonTitle: "동아리")
+    let smallGatheringButton = UIInterestsButton(frame: .zero, buttonTitle: "소모임")
+    let semiClubButton = UIInterestsButton(frame: .zero, buttonTitle: "준동아리")
+    let outsideClubButton = UIInterestsButton(frame: .zero, buttonTitle: "대외동아리")
     
     
     //    동아리 소모임 준동아리 대외동아리
@@ -59,7 +60,7 @@ final class UIAlertView: BaseView {
         layer.cornerRadius = 15
         
         switch alertType {
-        case .oneLine, .twoLine:
+        case .oneLine, .twoLine, .failLogin:
             
             titleLabel.do {
                 $0.textColor = .white000
@@ -193,6 +194,33 @@ final class UIAlertView: BaseView {
                 $0.trailing.equalToSuperview()
                 $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
                 $0.width.equalTo(SizeLiterals.Screen.screenWidth * 145 / 375)
+            }
+            
+        case .failLogin:
+            addSubviews(titleLabel, subTitleLabel, brView, checkButton)
+            
+            titleLabel.snp.makeConstraints {
+                $0.top.equalToSuperview().offset(SizeLiterals.Screen.screenHeight * 34 / 812)
+                $0.centerX.equalToSuperview()
+            }
+            
+            subTitleLabel.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 18 / 812)
+                $0.centerX.equalToSuperview()
+            }
+            
+            brView.snp.makeConstraints {
+                $0.bottom.equalToSuperview().offset(-SizeLiterals.Screen.screenHeight * 50 / 812)
+                $0.horizontalEdges.equalToSuperview()
+                $0.height.equalTo(1)
+            }
+            
+            
+            checkButton.snp.makeConstraints {
+                $0.bottom.equalToSuperview()
+                $0.trailing.equalToSuperview()
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+                $0.width.equalToSuperview()
             }
             
         case .selectInterests:

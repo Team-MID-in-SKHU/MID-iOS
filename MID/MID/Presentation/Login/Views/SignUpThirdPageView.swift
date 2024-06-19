@@ -20,18 +20,16 @@ final class SignUpThirdPageView: BaseView {
     private let titleLabel = UILabel()
     
     private let nameLabel = UILabel()
-    private let nameTextField = UnderLineTextField()
+    let nameTextField = UnderLineTextField()
     private let phoneNumberLabel = UILabel()
-    private let phoneNumberTextField = UnderLineTextField()
+    let phoneNumberTextField = UnderLineTextField()
     private let studentRoleLabel = UILabel()
-    private let studentRoleTextField = UnderLineTextField()
+    let studentRoleTextField = UnderLineTextField()
     private let studentDepartmentLabel = UILabel()
     private let dePartmentSubTitleLabel = UILabel()
-    private let studentDepartmentTextField = UnderLineTextField()
+    let studentDepartmentTextField = UnderLineTextField()
     
-    let pwTextField = UnderLineTextField()
     private let checkLabel = UILabel()
-    let pwCheckTextField = UnderLineTextField()
     let nextButton = UIButton()
     private let percentBar = UIPercentBar(frame: .zero, percentValue: 1)
     
@@ -88,14 +86,14 @@ final class SignUpThirdPageView: BaseView {
         }
         
         studentRoleLabel.do {
-            $0.text = "??을/를 입력해주세요"
+            $0.text = "역할을 입력해주세요"
             $0.font = .fontGuide(.head4)
             $0.textColor = .white000
         }
         
         studentRoleTextField.do {
             $0.setPlaceholder(
-                placeeholder: "??을/를 입력해주세요",
+                placeeholder: "일반학생 or 동아리 및 학생회 관계자",
                 color: .gray100
             )
             $0.font = .fontGuide(.head1)
