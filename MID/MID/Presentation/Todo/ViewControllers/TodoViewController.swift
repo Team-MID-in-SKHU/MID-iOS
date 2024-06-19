@@ -27,12 +27,7 @@ final class TodoViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.outputs.todayTodoList.subscribe(onNext: { menuList in
-            print(menuList)
-        }).disposed(by: disposeBag)
-        
-        print("나눠 주고 ~")
-        
+    
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "교내 모집공고 조회", style: .plain, target: nil, action: nil)
         self.navigationController?.navigationBar.tintColor = .white000
         
@@ -77,6 +72,12 @@ final class TodoViewController: BaseViewController {
                     cell.configureWith(componentTitle: data)
                     self.laterTodoView.laterTodoTableView.backgroundView?.isHidden = true
                 }
+                cell.todoCheckButton.rx.tap
+                    .bind { [weak self] in
+                        guard let self else { return }
+                        cell.setCheckButton()
+                    }
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
