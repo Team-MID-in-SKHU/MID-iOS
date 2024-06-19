@@ -19,26 +19,6 @@ final class TokenManager {
     
     private init() {}
     
-//    func refreshNewToken(retryHandler: @escaping (_ success: Bool) -> Void) {
-//        AuthTarget.shared.getRefreshToken { response in
-//            guard response != nil else {
-//                retryHandler(false)
-//                return
-//            }
-//            guard let data = response?.data else { return }
-////            APIConstants.jwtToken = data.accessToken
-////            APIConstants.refreshToken = data.refreshToken
-//            if let accessTokenData = data.accessToken.data(using: .utf8) {
-////                KeychainHelper.save(key: I18N.Auth.jwtToken, data: accessTokenData)
-//            }
-//
-//            if let refreshTokenData = data.refreshToken.data(using: .utf8) {
-////                KeychainHelper.save(key: I18N.Auth.refreshToken, data: refreshTokenData)
-//            }
-//            retryHandler(true)
-//        }
-//    }
-    
     func refreshNewToken() -> Observable<Void> {
         return authProvider.rx.request(.tokenRefresh)
             .asObservable()
@@ -54,14 +34,14 @@ final class TokenManager {
             .do(onNext: { data in
                 print("🔥")
                 print("New Token is now valid.")
-//                APIConstants.jwtToken = data.accessToken
-//                APIConstants.refreshToken = data.refreshToken
+                APIConstants.jwtToken = data.accessToken
+                APIConstants.refreshToken = data.refreshToken
                 if let accessTokenData = data.accessToken.data(using: .utf8) {
-//                    KeychainHelper.save(key: I18N.Auth.jwtToken, data: accessTokenData)
+                    KeychainHelper.save(key: StringLiterals.Auth.jwtToken, data: accessTokenData)
                 }
 
                 if let refreshTokenData = data.refreshToken.data(using: .utf8) {
-//                    KeychainHelper.save(key: I18N.Auth.refreshToken, data: refreshTokenData)
+                    KeychainHelper.save(key: StringLiterals.Auth.refreshToken, data: refreshTokenData)
                 }
             })
             .map {_ in}
