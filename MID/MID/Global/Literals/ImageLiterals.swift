@@ -29,4 +29,5 @@ enum ImageLiterals {
 
     static var jetiImage: UIImage { .load(name: "jeti").withRenderingMode(.alwaysOriginal)}
     static var codingImage: UIImage { .load(name: "coding").withRenderingMode(.alwaysOriginal)}
+    static var searchIcon: UIImage { .load(name: "searchIcon").withRenderingMode(.alwaysOriginal)}
 }
