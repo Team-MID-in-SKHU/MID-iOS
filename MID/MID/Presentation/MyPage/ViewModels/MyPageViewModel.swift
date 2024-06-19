@@ -61,6 +61,11 @@ final class MyPageViewModel: MyPageViewModelInput, MyPageViewModelOutput, MyPage
     
     func pushAlarmDidTap() {
         print("pushAlarmDidTap")
+        if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+            if UIApplication.shared.canOpenURL(appSettings) {
+                UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+            }
+        }
     }
     
     func logOutDidTap() {
